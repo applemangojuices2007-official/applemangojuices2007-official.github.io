@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>3D 도형</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+		<link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+	</head>
+	<body>
+		<canvas id="c"></canvas>
+		<script src="three.min.js"></script>
+		<script>
+			function main() {
+				const canvas = document.querySelector('#c');
+				const renderer = new THREE.WebGLRenderer({canvas});
+				const fov = 75;
+				const aspect = 2;  // 캔버스 기본값
+				const near = 0.1;
+				const far = 200;
+				const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+				camera.position.z = 5;
+				const scene = new THREE.Scene();
+				const boxWidth = 3;
+				const boxHeight = 3;
+				const boxDepth = 3;
+				const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+				const material = new THREE.MeshPhongMaterial({color: 0xe8ac33});
+				const cube = new THREE.Mesh(geometry, material);
+				scene.add(cube);
+				const color = 0xFFFFFF;
+				const intensity = 1;
+				const light = new THREE.DirectionalLight(color, intensity);
+				light.position.set(-1, 2, 4);
+				scene.add(light);
+				renderer.render(scene, camera);
+				
+				function resizeRendererToDisplaySize(renderer) {
+					const canvas = renderer.domElement;
+					const width = canvas.clientWidth;
+					const height = canvas.clientHeight;
+					const needResize = canvas.width !== width || canvas.height !== height;
+					if (needResize) {
+						renderer.setSize(width, height, false);
+					}
+					return needResize;
+				}
+				if (resizeRendererToDisplaySize(renderer)) {
+					const canvas = renderer.domElement;
+					camera.aspect = canvas.clientWidth / canvas.clientHeight;
+					camera.updateProjectionMatrix();
+				}
+
+				function render(time) {
+					time *= 0.001;  // 시간을 초로 변환
+					const canvas = renderer.domElement;
+  					camera.aspect = canvas.clientWidth / canvas.clientHeight;
+ 			 		camera.updateProjectionMatrix();
+					cube.rotation.x = time;
+					cube.rotation.y = time;
+					
+					renderer.render(scene, camera);
+					
+					requestAnimationFrame(render);
+				}
+				requestAnimationFrame(render);
+			}
+			main();
+		</script>
+	</body>
+</html>
