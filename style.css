@@ -79,6 +79,11 @@ summary {
 	margin-bottom: 2%;
 	color: #5522FF
 }
+summary#project {
+	margin-top: 2%;
+	margin-bottom: 2%;
+	color: #00fd19;
+}
 .item {
 	margin-top: 2%;
 	margin-left: 2%;
@@ -95,4 +100,12 @@ summary {
 #hits {
 	width: 70%;
 	height: 70%;
+}
+#project_link {
+	color: #e8ca33;
+	text-decoration: none;
+}
+#project_link:hover {
+	color: #e8ca33;
+	text-decoration: underline;
 }
