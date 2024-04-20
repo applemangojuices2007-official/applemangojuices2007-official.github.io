@@ -1,3 +1,6 @@
+* {
+	font-family: 'Nanum Gothic', sans-serif;
+}
 body {
 	margin: 0;
 	background-color : #222222;
@@ -108,4 +111,60 @@ summary#project {
 #project_link:hover {
 	color: #e8ca33;
 	text-decoration: underline;
+}
+#search2 {
+	margin-top: 2%;
+	width: 20%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search3 {
+	margin-top: 2%;
+	width: 20%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search4 {
+	margin-top: 2%;
+	margin-left: 2%;
+	width: 10%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search5 {
+	margin-top: 2%;
+	width: 20%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search6 {
+	margin-top: 2%;
+	width: 20%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search7 {
+	margin-top: 2%;
+	margin-left: 2%;
+	width: 10%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#result1 {
+    width: 96%;
+    height: 10vw;
+	padding: 1%;
+	margin: 1%;
+	font-size: 2vw;
+    border: none;
+    resize: none;
+}
+#result2 {
+    width: 96%;
+    height: 10vw;
+	padding: 1%;
+	margin: 1%;
+	font-size: 2vw;
+    border: none;
+    resize: none;
 }
