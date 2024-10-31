@@ -150,9 +150,47 @@ summary#project {
 	font-size: 2vw;
 	padding: 1%;
 }
+#search8 {
+	margin-top: 2%;
+	width: 20%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search9 {
+	margin-top: 2%;
+	width: 20%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search10 {
+	margin-top: 2%;
+	margin-left: 2%;
+	width: 10%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search11 {
+	margin-top: 2%;
+	width: 20%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search12 {
+	margin-top: 2%;
+	width: 20%;
+	font-size: 2vw;
+	padding: 1%;
+}
+#search13 {
+	margin-top: 2%;
+	margin-left: 2%;
+	width: 10%;
+	font-size: 2vw;
+	padding: 1%;
+}
 #result1 {
     width: 96%;
-    height: 10vw;
+    height: 20vw;
 	padding: 1%;
 	margin: 1%;
 	font-size: 2vw;
@@ -161,7 +199,43 @@ summary#project {
 }
 #result2 {
     width: 96%;
-    height: 10vw;
+    height: 20vw;
+	padding: 1%;
+	margin: 1%;
+	font-size: 2vw;
+    border: none;
+    resize: none;
+}
+#result3 {
+    width: 96%;
+    height: 20vw;
+	padding: 1%;
+	margin: 1%;
+	font-size: 2vw;
+    border: none;
+    resize: none;
+}
+#result4 {
+    width: 96%;
+    height: 20vw;
+	padding: 1%;
+	margin: 1%;
+	font-size: 2vw;
+    border: none;
+    resize: none;
+}
+#zscoreinput1 {
+    width: 96%;
+    height: 20vw;
+	padding: 1%;
+	margin: 1%;
+	font-size: 2vw;
+    border: none;
+    resize: none;
+}
+#zscoreinput2 {
+    width: 96%;
+    height: 20vw;
 	padding: 1%;
 	margin: 1%;
 	font-size: 2vw;
