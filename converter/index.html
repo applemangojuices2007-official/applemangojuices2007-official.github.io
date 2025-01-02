@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="theme-color" content="#e8ac33">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#e8ac33">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+    <title>PDF to JPG - applemangojuices2007</title>
+    <style>
+        #images-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .pdf-image {
+            max-width: 100%;
+            border: 1px solid #ccc;
+        }
+        #pdf-file {
+            font-size: 100%;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+
+<body>
+    <div id="topbar">
+        <div id="title"><a style="text-decoration: none; color: #ffffff" href="index.html">applemangojuices2007</a>
+        </div>
+        <div id="subtitle">PDF to JPG 변환기</div>
+    </div>
+    <div id="section1">
+        <div id="section2">
+            <div id="sectiontitle">PDF 파일 업로드</div>
+            <div id="section3">
+                <p><input type="file" id="pdf-file" accept="application/pdf"></p>
+                <p>진행 상황: <span style="color: #00FF00" id="convertstatuscolor">준비</span></p>
+            </div>
+        </div>
+        <div id="section2">
+            <div id="sectiontitle">결과</div>
+            <div id="section3">
+                <p><span id="pagenumber": >페이지 수: </span></p>
+                <details>
+                    <summary>각각 페이지 다운로드 링크(펼치기/접기)</summary>
+                    <div id="images-container" class="images-container" style="display: flex;  flex-wrap: wrap;"></div>
+                </details>
+                <div id="downloadallbutton"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="converter.js"></script>
+</body>
+
+</html>
