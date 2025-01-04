@@ -32,7 +32,7 @@
 
 <body>
     <div id="topbar">
-        <div id="title"><a style="text-decoration: none; color: #ffffff" href="index.html">applemangojuices2007</a>
+        <div id="title"><a style="text-decoration: none; color: #ffffff" href="../index.html">applemangojuices2007</a>
         </div>
         <div id="subtitle">PDF to JPG 변환기</div>
     </div>
@@ -41,6 +41,13 @@
             <div id="sectiontitle">PDF 파일 업로드</div>
             <div id="section3">
                 <p><input type="file" id="pdf-file" accept="application/pdf"></p>
+                <p>
+                    처리 방식: 
+                    <input id="async_true" type="radio" name="async" value="async_true" checked><label for="async_true">동기(대용량 파일 권장)</label>
+                    <input id="async_false" type="radio" name="async" value="async_false"><label for="async_false">비동기(200페이지 이하 권장)</label>
+                </p>
+                <p><input id="auto_size" type="checkbox" value="auto_size"><label for="auto_size">사용자 지정 사이즈 사용</label></p>
+                <p><input id="size_width" type="radio" name="size_custom" value="size_width" disabled><label for="size_width">가로 축 지정</label><input id="size_width_value" type="number" value="2480" disabled>px&nbsp;&nbsp;&nbsp;<input id="size_height" type="radio" name="size_custom" value="size_height" disabled><label for="size_height">세로 축 지정</label><input id="size_height_value" type="number" value="3508" disabled>px</p>
                 <p>진행 상황: <span style="color: #00FF00" id="convertstatuscolor">준비</span></p>
             </div>
         </div>
