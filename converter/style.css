@@ -242,3 +242,20 @@ summary#project {
     border: none;
     resize: none;
 }
+#async_true, #async_false, #auto_size, #size_width, #size_height {
+	transform: scale(1.4);
+	vertical-align: 4px;
+}
+label {
+	vertical-align: 0px;
+	font-size: 2vw;
+	margin-left: 5px;
+}
+#size_width_value, #size_height_value {
+	width: 8%;
+	font-size: 2vw;
+	padding: 0.4%;
+	margin-left: 1%;
+	margin-right: 0.5%;
+	text-align: center;
+}
