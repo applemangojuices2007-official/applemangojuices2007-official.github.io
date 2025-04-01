@@ -1,126 +1,230 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>표준점수표 생성기 - applemangojuices2007</title>
-		<meta charset="utf-8">
-		<meta name="theme-color" content="#e8ac33">
-		<meta name="apple-mobile-web-app-status-bar-style" content="#e8ac33">
-		<script src="script.js"></script>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="style.css">
-		<link rel="shortcut icon" type="image/x-icon" href="icon.ico">
-	</head>
-	<body>
-		<script>
-			function score1() {
-				var a = document.getElementById("search2").value;
-				var b = document.getElementById("search3").value;
-				let resultbox = document.getElementById("result1");
-				resultbox.value = "";
-				for(var i = 100; i>=0; i--) {
-					var c = (20 * (i - a) / b + 100);
-					var result = i + "점일 때 표준점수: " + Math.round(c);
-					resultbox.value += (result + '\n')
-				}
-			}
-			function score2() {
-				var a = document.getElementById("search5").value;
-				var b = document.getElementById("search6").value;
-				let resultbox = document.getElementById("result2");
-				resultbox.value = "";
-				for(var i = 50; i>=0; i--) {
-					var c = (10 * (i - a) / b + 50);
-					var result = i + "점일 때 표준점수: " + Math.round(c);
-					resultbox.value += (result + '\n')
-				}
-			}
-			function score3() {
-				var a = document.getElementById("search8").value;
-				var b = document.getElementById("search9").value;
-				var zscoretable = document.getElementById("zscoreinput1").value;
-				let resultbox = document.getElementById("result3");
-				
-				var zscorearray = zscoretable.split("\n");
-				resultbox.value = "";
 
-				var grade = 7;
-				for(var i = 0; i<=100; i++) {
-					var c = (20 * (i - a) / b + 100);
-					if(zscorearray[grade] == Math.round(c)) {
-						resultbox.value =  ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
-						grade--;
-					}
-				}
-			}
-			function score4() {
-				var a = document.getElementById("search11").value;
-				var b = document.getElementById("search12").value;
-				var zscoretable = document.getElementById("zscoreinput2").value;
-				let resultbox = document.getElementById("result4");
-				
-				var zscorearray = zscoretable.split("\n");
-				resultbox.value = "";
+<head>
+	<title>표준점수표 생성기 - applemangojuices2007</title>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#e8ac33">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#e8ac33">
+	<script src="script.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+</head>
 
-				var grade = 7;
-				for(var i = 0; i<=50; i++) {
-					var c = (10 * (i - a) / b + 50);
-					if(zscorearray[grade] == Math.round(c)) {
-						resultbox.value =  ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
-						grade--;
-					}
+<body>
+	<script>
+		function score1() {
+			var a = document.getElementById("search2").value;
+			var b = document.getElementById("search3").value;
+			let resultbox = document.getElementById("result1");
+			resultbox.value = "";
+			for (var i = 100; i >= 0; i--) {
+				var c = (20 * (i - a) / b + 100);
+				var result = i + "점일 때 표준점수: " + Math.round(c);
+				resultbox.value += (result + '\n')
+			}
+		}
+		function score2() {
+			var a = document.getElementById("search5").value;
+			var b = document.getElementById("search6").value;
+			let resultbox = document.getElementById("result2");
+			resultbox.value = "";
+			for (var i = 50; i >= 0; i--) {
+				var c = (10 * (i - a) / b + 50);
+				var result = i + "점일 때 표준점수: " + Math.round(c);
+				resultbox.value += (result + '\n')
+			}
+		}
+		function score3() {
+			var a = document.getElementById("search8").value;
+			var b = document.getElementById("search9").value;
+			var zscoretable = document.getElementById("zscoreinput1").value;
+			let resultbox = document.getElementById("result3");
+
+			var zscorearray = zscoretable.split("\n");
+			resultbox.value = "";
+
+			var grade = 7;
+			for (var i = 0; i <= 100; i++) {
+				var c = (20 * (i - a) / b + 100);
+				if (zscorearray[grade] == Math.round(c)) {
+					resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
+					grade--;
 				}
 			}
-		</script>
-		<!--<div id="toolbar"><a id="toolbarlink" href="#topbar">홈</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="toolbarlink" href="#search">검색</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="toolbarlink" href="3d/index.html">3D 도형 보기</a></div>
+		}
+		function score4() {
+			var a = document.getElementById("search11").value;
+			var b = document.getElementById("search12").value;
+			var zscoretable = document.getElementById("zscoreinput2").value;
+			let resultbox = document.getElementById("result4");
+
+			var zscorearray = zscoretable.split("\n");
+			resultbox.value = "";
+
+			var grade = 7;
+			for (var i = 0; i <= 50; i++) {
+				var c = (10 * (i - a) / b + 50);
+				if (zscorearray[grade] == Math.round(c)) {
+					resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
+					document.getElementById("subjectscore" + (grade + 1)).innerHTML = i;
+					document.getElementById("subjectzscore" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
+					grade--;
+				}
+			}
+			document.getElementById("subjectzscore0").innerHTML = Math.round(10 * (50 - a) / b + 50);
+			document.getElementById("subjectzscore9").innerHTML = Math.round(10 * (0 - a) / b + 50);
+			document.getElementById("subjectinfo").innerHTML = document.getElementById("search14").value + '(평균: ' + a + ', 표준편차: ' + b + ')';
+		}
+	</script>
+	<!--<div id="toolbar"><a id="toolbarlink" href="#topbar">홈</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="toolbarlink" href="#search">검색</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="toolbarlink" href="3d/index.html">3D 도형 보기</a></div>
 		-->
-			<div id="topbar">
-			<div id="title"><a style="text-decoration: none; color: #ffffff" href="index.html">applemangojuices2007</a></div>
-			<div id="subtitle">표준점수표 생성기</div>
+	<div id="topbar">
+		<div id="title"><a style="text-decoration: none; color: #ffffff" href="index.html">applemangojuices2007</a>
 		</div>
-		<div id="section1">
-			<div id="section2">
-				<div id="sectiontitle">참고사항</div>
-				<div id="section3">
-					<p>모든 과목에서 1점은 존재하지 않으며, 국어, 수학, 영어의 경우 99점, 한국사, 탐구의 경우 49점이 존재하지 않습니다.</p>
-					<p>국어, 수학, 영어는 표준편차 20일때 원점수 1점당 표점이 1점씩 떨어지며, 한국사, 탐구는 표준편차 10일때 원점수 1점당 표점이 1점씩 떨어집니다.</p>
-					<p>원점수가 평균 점수일때 표준점수는 국어, 수학, 영어는 100점, 한국사, 탐구는 50점입니다.</p>
-					<p>등급컷 생성기는 교육청에서 제공하는 영역별 등급 구분점수를 1등급부터 순서대로 여러 줄로 입력해주세요.</p>
-					<p><a href="index.html" style="color: #ffffff">메인 페이지로 이동</a></p>
-				</div>
+		<div id="subtitle">표준점수표 생성기</div>
+	</div>
+	<div id="section1">
+		<div id="section2">
+			<div id="sectiontitle">참고사항</div>
+			<div id="section3">
+				<p>모든 과목에서 1점은 존재하지 않으며, 국어, 수학, 영어의 경우 99점, 한국사, 탐구의 경우 49점이 존재하지 않습니다.</p>
+				<p>국어, 수학, 영어는 표준편차 20일때 원점수 1점당 표점이 1점씩 떨어지며, 한국사, 탐구는 표준편차 10일때 원점수 1점당 표점이 1점씩 떨어집니다.</p>
+				<p>원점수가 평균 점수일때 표준점수는 국어, 수학, 영어는 100점, 한국사, 탐구는 50점입니다.</p>
+				<p>등급컷 생성기는 교육청에서 제공하는 영역별 등급 구분점수를 1등급부터 순서대로 여러 줄로 입력해주세요.</p>
+				<p><a href="index.html" style="color: #ffffff">메인 페이지로 이동</a></p>
 			</div>
-			<div id="section2">
-				<div id="sectiontitle">국어, 수학, 영어 표준점수표 생성기</div>
-				<div id="section3">
-					<p>평균: <input id="search2" type="text" value="50">, 표준편차: <input id="search3" type="text" value="20"> <input id="search4" type="button" value="확인" onclick="score1()"></p>
-					<textarea id="result1" readonly="1"></textarea>
-				</div>
-			</div>
-			<div id="section2">
-				<div id="sectiontitle">한국사, 탐구 표준점수표 생성기</div>
-				<div id="section3">
-					<p>평균: <input id="search5" type="text" value="25">, 표준편차: <input id="search6" type="text" value="10"> <input id="search7" type="button" value="확인" onclick="score2()"></p>
-					<textarea id="result2" readonly="1"></textarea>
-				</div>
-			</div>
-			<div id="section2">
-				<div id="sectiontitle">국어, 수학, 영어 표점 기반 등급컷 생성기</div>
-				<div id="section3">
-					<p>평균: <input id="search8" type="text" value="50">, 표준편차: <input id="search9" type="text" value="20"> <input id="search10" type="button" value="확인" onclick="score3()"></p>
-					<textarea id="zscoreinput1" placeholder="(1등급 구분 표준점수)&#13;(2등급 구분 표준점수)&#13;(3등급 구분 표준점수)&#13;(4등급 구분 표준점수)&#13;(5등급 구분 표준점수)&#13;(6등급 구분 표준점수)&#13;(7등급 구분 표준점수)&#13;(8등급 구분 표준점수)&#13;"></textarea>
-					<textarea id="result3" readonly="1"></textarea>
-				</div>
-			</div>
-			<div id="section2">
-				<div id="sectiontitle">한국사, 탐구 표점 기반 등급컷 생성기</div>
-				<div id="section3">
-					<p>평균: <input id="search11" type="text" value="25">, 표준편차: <input id="search12" type="text" value="10"> <input id="search13" type="button" value="확인" onclick="score4()"></p>
-					<textarea id="zscoreinput2" placeholder="(1등급 구분 표준점수)&#13;(2등급 구분 표준점수)&#13;(3등급 구분 표준점수)&#13;(4등급 구분 표준점수)&#13;(5등급 구분 표준점수)&#13;(6등급 구분 표준점수)&#13;(7등급 구분 표준점수)&#13;(8등급 구분 표준점수)&#13;"></textarea>
-					<textarea id="result4" readonly="1"></textarea>
-				</div>
-			</div>
-			<div style="text-align: center; margin-bottom: 3%; color: #ffffff;">Made by applemangojuices2007, since 2021. 08. 15.</div>
 		</div>
-	</body>
+		<div id="section2">
+			<div id="sectiontitle">국어, 수학, 영어 표준점수표 생성기</div>
+			<div id="section3">
+				<p>평균: <input id="search2" type="text" value="50">, 표준편차: <input id="search3" type="text" value="20">
+					<input id="search4" type="button" value="확인" onclick="score1()">
+				</p>
+				<textarea id="result1" readonly="1"></textarea>
+			</div>
+		</div>
+		<div id="section2">
+			<div id="sectiontitle">한국사, 탐구 표준점수표 생성기</div>
+			<div id="section3">
+				<p>평균: <input id="search5" type="text" value="25">, 표준편차: <input id="search6" type="text" value="10">
+					<input id="search7" type="button" value="확인" onclick="score2()">
+				</p>
+				<textarea id="result2" readonly="1"></textarea>
+			</div>
+		</div>
+		<div id="section2">
+			<div id="sectiontitle">국어, 수학, 영어 표점 기반 등급컷 생성기</div>
+			<div id="section3">
+				<p>평균: <input id="search8" type="text" value="50">, 표준편차: <input id="search9" type="text" value="20">
+					<input id="search10" type="button" value="확인" onclick="score3()">
+				</p>
+				<textarea id="zscoreinput1"
+					placeholder="(1등급 구분 표준점수)&#13;(2등급 구분 표준점수)&#13;(3등급 구분 표준점수)&#13;(4등급 구분 표준점수)&#13;(5등급 구분 표준점수)&#13;(6등급 구분 표준점수)&#13;(7등급 구분 표준점수)&#13;(8등급 구분 표준점수)&#13;"></textarea>
+				<textarea id="result3" readonly="1"></textarea>
+			</div>
+		</div>
+		<div id="section2">
+			<div id="sectiontitle">한국사, 탐구 표점 기반 등급컷 생성기</div>
+			<div id="section3">
+				<p>평균: <input id="search11" type="text" value="25">, 표준편차: <input id="search12" type="text" value="10">, 과목: <input id="search14" type="text" value="">
+					<input id="search13" type="button" value="확인" onclick="score4()">
+				</p>
+				<textarea id="zscoreinput2"
+					placeholder="(1등급 구분 표준점수)&#13;(2등급 구분 표준점수)&#13;(3등급 구분 표준점수)&#13;(4등급 구분 표준점수)&#13;(5등급 구분 표준점수)&#13;(6등급 구분 표준점수)&#13;(7등급 구분 표준점수)&#13;(8등급 구분 표준점수)&#13;"></textarea>
+				<textarea id="result4" readonly="1"></textarea>
+				<details>
+					<div id="result5">
+						<table style="width: 100%;" border="1">
+							<tr>
+								<th colspan="3" id="subjectinfo">생활과 윤리(평균: 25.00, 표준편차: 10.00)<br></th>
+							</tr>
+							<tr>
+								<th>등급</th>
+								<th>원점수</th>
+								<th>표준점수</th>
+							</tr>
+							<tr>
+								<td>만점</td>
+								<td id="subjectscore0">50</td>
+								<td id="subjectzscore0">--</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td id="subjectscore1">--</td>
+								<td id="subjectzscore1">--</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td id="subjectscore2">--</td>
+								<td id="subjectzscore2">--</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td id="subjectscore3">--</td>
+								<td id="subjectzscore3">--</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td id="subjectscore4">--</td>
+								<td id="subjectzscore4">--</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td id="subjectscore5">--</td>
+								<td id="subjectzscore5">--</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td id="subjectscore6">--</td>
+								<td id="subjectzscore6">--</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td id="subjectscore7">--</td>
+								<td id="subjectzscore7">--</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td id="subjectscore8">--</td>
+								<td id="subjectzscore8">--</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td id="subjectscore9">0</td>
+								<td id="subjectzscore9">--</td>
+							</tr>
+						</table>
+					</div>
+					<button onclick="captureDiv()">Div를 이미지로 저장</button>
+
+					<br><br>
+
+					<h3>변환된 이미지</h3>
+					<img id="imageOutput" style="max-width: 100%; border: 1px solid #ccc;" />
+
+					<script>
+						function captureDiv() {
+							// html2canvas 사용하여 div를 이미지로 변환
+							html2canvas(document.getElementById('result5')).then(function (canvas) {
+								// 캔버스를 이미지 URL로 변환
+								var imgURL = canvas.toDataURL('image/png');
+
+								// 이미지 요소에 변환된 이미지 삽입
+								document.getElementById('imageOutput').src = imgURL;
+							});
+						}
+					</script>
+				</details>
+			</div>
+		</div>
+		<div style="text-align: center; margin-bottom: 3%; color: #ffffff;">Made by applemangojuices2007, since 2021.
+			08. 15.</div>
+	</div>
+</body>
+
 </html>

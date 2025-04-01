@@ -188,6 +188,12 @@ summary#project {
 	font-size: 2vw;
 	padding: 1%;
 }
+#search14 {
+	margin-top: 2%;
+	width: 10%;
+	font-size: 2vw;
+	padding: 1%;
+}
 #result1 {
     width: 96%;
     height: 20vw;
@@ -241,4 +247,20 @@ summary#project {
 	font-size: 2vw;
     border: none;
     resize: none;
+}
+#subjectinfo {
+	background-color: #b44ed5;
+}
+#result5 table {
+	background-color: #ffffff;
+	color: #000000;
+	padding-top: 18%;
+	padding-bottom: 18%;
+}
+#result5 th, td {
+	padding: 50px 10px;
+	font-size: 60px;
+}
+#result5 td {
+	text-align: center;
 }
