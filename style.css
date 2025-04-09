@@ -188,7 +188,7 @@ summary#project {
 	font-size: 2vw;
 	padding: 1%;
 }
-#search14 {
+#search14, #search15 {
 	margin-top: 2%;
 	width: 10%;
 	font-size: 2vw;
@@ -248,19 +248,59 @@ summary#project {
     border: none;
     resize: none;
 }
-#subjectinfo {
-	background-color: #b44ed5;
+#subjectinfo1 {
+	background-color: #E9C203;
+}
+#subjectinfo2 {
+	background-color: #E9C203;
+}
+#subjectinfo3 {
+	background-color: #CC9999;
+}
+#subjectinfo4 {
+	background-color: #CC9999;
 }
 #result5 table {
 	background-color: #ffffff;
 	color: #000000;
-	padding-top: 18%;
-	padding-bottom: 18%;
 }
 #result5 th, td {
 	padding: 50px 10px;
 	font-size: 60px;
 }
 #result5 td {
+	text-align: center;
+}
+#result6 table {
+	background-color: #ffffff;
+	color: #000000;
+}
+#result6 th, td {
+	padding: 50px 10px;
+	font-size: 60px;
+}
+#result6 td {
+	text-align: center;
+}
+#result7 table {
+	background-color: #ffffff;
+	color: #000000;
+}
+#result7 th, td {
+	padding: 50px 10px;
+	font-size: 60px;
+}
+#result7 td {
+	text-align: center;
+}
+#result8 table {
+	background-color: #ffffff;
+	color: #000000;
+}
+#result8 th, td {
+	padding: 50px 10px;
+	font-size: 60px;
+}
+#result8 td {
 	text-align: center;
 }

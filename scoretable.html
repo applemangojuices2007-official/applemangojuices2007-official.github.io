@@ -97,6 +97,7 @@
 				<p>원점수가 평균 점수일때 표준점수는 국어, 수학, 영어는 100점, 한국사, 탐구는 50점입니다.</p>
 				<p>등급컷 생성기는 교육청에서 제공하는 영역별 등급 구분점수를 1등급부터 순서대로 여러 줄로 입력해주세요.</p>
 				<p><a href="index.html" style="color: #ffffff">메인 페이지로 이동</a></p>
+				<p><a href="scoretablemaker.html" style="color: #ffffff">등급컷 이미지 생성기 포함</a></p>
 			</div>
 		</div>
 		<div id="section2">
@@ -131,95 +132,12 @@
 		<div id="section2">
 			<div id="sectiontitle">한국사, 탐구 표점 기반 등급컷 생성기</div>
 			<div id="section3">
-				<p>평균: <input id="search11" type="text" value="25">, 표준편차: <input id="search12" type="text" value="10">, 과목: <input id="search14" type="text" value="">
+				<p>평균: <input id="search11" type="text" value="25">, 표준편차: <input id="search12" type="text" value="10">
 					<input id="search13" type="button" value="확인" onclick="score4()">
 				</p>
 				<textarea id="zscoreinput2"
 					placeholder="(1등급 구분 표준점수)&#13;(2등급 구분 표준점수)&#13;(3등급 구분 표준점수)&#13;(4등급 구분 표준점수)&#13;(5등급 구분 표준점수)&#13;(6등급 구분 표준점수)&#13;(7등급 구분 표준점수)&#13;(8등급 구분 표준점수)&#13;"></textarea>
 				<textarea id="result4" readonly="1"></textarea>
-				<details>
-					<div id="result5">
-						<table style="width: 100%;" border="1">
-							<tr>
-								<th colspan="3" id="subjectinfo">생활과 윤리(평균: 25.00, 표준편차: 10.00)<br></th>
-							</tr>
-							<tr>
-								<th>등급</th>
-								<th>원점수</th>
-								<th>표준점수</th>
-							</tr>
-							<tr>
-								<td>만점</td>
-								<td id="subjectscore0">50</td>
-								<td id="subjectzscore0">--</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td id="subjectscore1">--</td>
-								<td id="subjectzscore1">--</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td id="subjectscore2">--</td>
-								<td id="subjectzscore2">--</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td id="subjectscore3">--</td>
-								<td id="subjectzscore3">--</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td id="subjectscore4">--</td>
-								<td id="subjectzscore4">--</td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td id="subjectscore5">--</td>
-								<td id="subjectzscore5">--</td>
-							</tr>
-							<tr>
-								<td>6</td>
-								<td id="subjectscore6">--</td>
-								<td id="subjectzscore6">--</td>
-							</tr>
-							<tr>
-								<td>7</td>
-								<td id="subjectscore7">--</td>
-								<td id="subjectzscore7">--</td>
-							</tr>
-							<tr>
-								<td>8</td>
-								<td id="subjectscore8">--</td>
-								<td id="subjectzscore8">--</td>
-							</tr>
-							<tr>
-								<td>9</td>
-								<td id="subjectscore9">0</td>
-								<td id="subjectzscore9">--</td>
-							</tr>
-						</table>
-					</div>
-					<button onclick="captureDiv()">Div를 이미지로 저장</button>
-
-					<br><br>
-
-					<h3>변환된 이미지</h3>
-					<img id="imageOutput" style="max-width: 100%; border: 1px solid #ccc;" />
-
-					<script>
-						function captureDiv() {
-							// html2canvas 사용하여 div를 이미지로 변환
-							html2canvas(document.getElementById('result5')).then(function (canvas) {
-								// 캔버스를 이미지 URL로 변환
-								var imgURL = canvas.toDataURL('image/png');
-
-								// 이미지 요소에 변환된 이미지 삽입
-								document.getElementById('imageOutput').src = imgURL;
-							});
-						}
-					</script>
-				</details>
 			</div>
 		</div>
 		<div style="text-align: center; margin-bottom: 3%; color: #ffffff;">Made by applemangojuices2007, since 2021.
