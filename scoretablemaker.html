@@ -51,15 +51,26 @@
 			resultbox.value = "";
 
 			var grade = 7;
-			for (var i = 0; i <= 100; i++) {
-				var c = (20 * (i - a) / b + 100);
-				if (zscorearray[grade] == Math.round(c)) {
-					resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
-					document.getElementById("subjectscore" + (grade + 1)).innerHTML = i;
-					document.getElementById("subjectzscore" + (grade + 1)).innerHTML = Math.round(20 * (i - a) / b + 100);
-					document.getElementById("subjectscore1" + (grade + 1)).innerHTML = i;
-					document.getElementById("subjectzscore1" + (grade + 1)).innerHTML = Math.round(20 * (i - a) / b + 100);
+			if (document.getElementById("search15").value == 2) {
+				for (var i = 2; i <= 9; i++) {
+					document.getElementById("subjectscore" + (grade + 1)).innerHTML = i * 10;
+					document.getElementById("subjectzscore" + (grade + 1)).innerHTML = Math.round(20 * (i * 10 - a) / b + 100);
+					document.getElementById("subjectscore1" + (grade + 1)).innerHTML = i * 10;
+					document.getElementById("subjectzscore1" + (grade + 1)).innerHTML = Math.round(20 * (i * 10 - a) / b + 100);
 					grade--;
+				}
+			}
+			else {
+				for (var i = 0; i <= 100; i++) {
+					var c = (20 * (i - a) / b + 100);
+					if (zscorearray[grade] == Math.round(c)) {
+						resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
+						document.getElementById("subjectscore" + (grade + 1)).innerHTML = i;
+						document.getElementById("subjectzscore" + (grade + 1)).innerHTML = Math.round(20 * (i - a) / b + 100);
+						document.getElementById("subjectscore1" + (grade + 1)).innerHTML = i;
+						document.getElementById("subjectzscore1" + (grade + 1)).innerHTML = Math.round(20 * (i - a) / b + 100);
+						grade--;
+					}
 				}
 			}
 			document.getElementById("subjectzscore0").innerHTML = Math.round(20 * (100 - a) / b + 100);
@@ -81,15 +92,26 @@
 			resultbox.value = "";
 
 			var grade = 7;
-			for (var i = 0; i <= 50; i++) {
-				var c = (10 * (i - a) / b + 50);
-				if (zscorearray[grade] == Math.round(c)) {
-					resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
-					document.getElementById("subjectscore2" + (grade + 1)).innerHTML = i;
-					document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
-					document.getElementById("subjectscore3" + (grade + 1)).innerHTML = i;
-					document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
+			if (document.getElementById("search14").value == 3) {
+				for (var i = 1; i <= 8; i++) {
+					document.getElementById("subjectscore2" + (grade + 1)).innerHTML = i * 5;
+					document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = Math.round(10 * (i * 5 - a) / b + 50);
+					document.getElementById("subjectscore3" + (grade + 1)).innerHTML = i * 5;
+					document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = Math.round(10 * (i * 5 - a) / b + 50);
 					grade--;
+				}
+			}
+			else {
+				for (var i = 0; i <= 50; i++) {
+					var c = (10 * (i - a) / b + 50);
+					if (zscorearray[grade] == Math.round(c)) {
+						resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
+						document.getElementById("subjectscore2" + (grade + 1)).innerHTML = i;
+						document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
+						document.getElementById("subjectscore3" + (grade + 1)).innerHTML = i;
+						document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
+						grade--;
+					}
 				}
 			}
 			document.getElementById("subjectzscore20").innerHTML = Math.round(10 * (50 - a) / b + 50);
@@ -141,11 +163,12 @@
 		<div id="section2">
 			<div id="sectiontitle">국어, 수학, 영어 표점 기반 등급컷 생성기</div>
 			<div id="section3">
-				<p>평균: <input id="search8" type="text" value="50.00">, 표준편차: <input id="search9" type="text" value="20.00">, 과목: <select id="search15" name="과목">
-					<option value="0">국어</option>
-					<option value="1">수학</option>
-					<option value="2">영어</option>
-				</select>
+				<p>평균: <input id="search8" type="text" value="50.00">, 표준편차: <input id="search9" type="text"
+						value="20.00">, 과목: <select id="search15" name="과목">
+						<option value="0">국어</option>
+						<option value="1">수학</option>
+						<option value="2">영어</option>
+					</select>
 					<input id="search10" type="button" value="확인" onclick="score3()">
 				</p>
 				<textarea id="zscoreinput1"
@@ -322,30 +345,31 @@
 		<div id="section2">
 			<div id="sectiontitle">한국사, 탐구 표점 기반 등급컷 생성기</div>
 			<div id="section3">
-				<p>평균: <input id="search11" type="text" value="25.00">, 표준편차: <input id="search12" type="text" value="10.00">, 과목: <select id="search14" name="과목">
-					<option value="3">한국사</option>
-					<option value="4">사회</option>
-					<option value="5">과학</option>
-					<option value="6">통합사회</option>
-					<option value="7">통합과학</option>
-					<option value="8">생활과 윤리</option>
-					<option value="9">윤리와 사상</option>
-					<option value="10">한국지리</option>
-					<option value="11">세계지리</option>
-					<option value="12">동아시아사</option>
-					<option value="13">세계사</option>
-					<option value="14">경제</option>
-					<option value="15">정치와 법</option>
-					<option value="16">사회·문화</option>
-					<option value="17">물리학I</option>
-					<option value="18">화학I</option>
-					<option value="19">생명과학I</option>
-					<option value="20">지구과학I</option>
-					<option value="21">물리학II</option>
-					<option value="22">화학II</option>
-					<option value="23">생명과학II</option>
-					<option value="24">지구과학II</option>
-				</select>
+				<p>평균: <input id="search11" type="text" value="25.00">, 표준편차: <input id="search12" type="text"
+						value="10.00">, 과목: <select id="search14" name="과목">
+						<option value="3">한국사</option>
+						<option value="4">사회</option>
+						<option value="5">과학</option>
+						<option value="6">통합사회</option>
+						<option value="7">통합과학</option>
+						<option value="8">생활과 윤리</option>
+						<option value="9">윤리와 사상</option>
+						<option value="10">한국지리</option>
+						<option value="11">세계지리</option>
+						<option value="12">동아시아사</option>
+						<option value="13">세계사</option>
+						<option value="14">경제</option>
+						<option value="15">정치와 법</option>
+						<option value="16">사회·문화</option>
+						<option value="17">물리학I</option>
+						<option value="18">화학I</option>
+						<option value="19">생명과학I</option>
+						<option value="20">지구과학I</option>
+						<option value="21">물리학II</option>
+						<option value="22">화학II</option>
+						<option value="23">생명과학II</option>
+						<option value="24">지구과학II</option>
+					</select>
 					<input id="search13" type="button" value="확인" onclick="score4()">
 				</p>
 				<textarea id="zscoreinput2"
