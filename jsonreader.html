@@ -96,6 +96,7 @@
 				grade--;
 			}
 		}
+		// 한국사 탐구 계산
 		function score4() {
 			score4_init();
 			var a = document.getElementById("search11").value;
@@ -118,6 +119,9 @@
 			}
 			else {
 				for (var i = 0; i <= 50; i++) {
+					if (i === 1 || i === 49) {
+						continue; // 1과 49는 건너뜀
+					}
 					var c = (10 * (i - a) / b + 50);
 					if (zscorearray[grade] == Math.round(c)) {
 						resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
@@ -125,6 +129,14 @@
 						document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
 						document.getElementById("subjectscore3" + (grade + 1)).innerHTML = i;
 						document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
+						grade--;
+					}
+					else if(zscorearray[grade] == '-') {
+						resultbox.value = ((grade + 1) + '등급 블랭크 발생' + '\n') + resultbox.value;
+						document.getElementById("subjectscore2" + (grade + 1)).innerHTML = '-';
+						document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = '-';
+						document.getElementById("subjectscore3" + (grade + 1)).innerHTML = '-';
+						document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = '-';
 						grade--;
 					}
 				}
