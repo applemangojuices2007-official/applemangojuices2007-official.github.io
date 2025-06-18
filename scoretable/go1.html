@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>표준점수표 생성기 - applemangojuices2007</title>
+	<title>표준점수표 생성기(고1) - applemangojuices2007</title>
 	<meta charset="utf-8">
 	<meta name="theme-color" content="#e8ac33">
 	<meta name="apple-mobile-web-app-status-bar-style" content="#e8ac33">
@@ -131,7 +131,7 @@
 						document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
 						grade--;
 					}
-					else if(zscorearray[grade] == '-') {
+					else if (zscorearray[grade] == '-') {
 						resultbox.value = ((grade + 1) + '등급 블랭크 발생' + '\n') + resultbox.value;
 						document.getElementById("subjectscore2" + (grade + 1)).innerHTML = '-';
 						document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = '-';
@@ -154,7 +154,7 @@
 	<div id="topbar">
 		<div id="title"><a style="text-decoration: none; color: #ffffff" href="index.html">applemangojuices2007</a>
 		</div>
-		<div id="subtitle">표준점수표 생성기</div>
+		<div id="subtitle">표준점수표 생성기(고1)</div>
 	</div>
 	<div id="section1">
 		<div id="section2">
@@ -593,13 +593,14 @@
 				const worksheet1 = workbook.Sheets[sheetName1];
 				const jsonData1 = XLSX.utils.sheet_to_json(worksheet1);
 				// 등급 구분점수 로드
-				const sheetName2 = workbook.SheetNames[4];
+				const sheetName2 = workbook.SheetNames[3];
 				const worksheet2 = workbook.Sheets[sheetName2];
 				const jsonData2 = XLSX.utils.sheet_to_json(worksheet2);
 				// 누적비율 로드(국수)
-				const sheetName3 = workbook.SheetNames[5];
+				const sheetName3 = workbook.SheetNames[4];
 				const worksheet3 = workbook.Sheets[sheetName3];
 				const jsonData3 = XLSX.utils.sheet_to_json(worksheet3);
+				/*
 				// 누적비율 로드(사탐)
 				const sheetName4 = workbook.SheetNames[6];
 				const worksheet4 = workbook.Sheets[sheetName4];
@@ -608,6 +609,7 @@
 				const sheetName5 = workbook.SheetNames[7];
 				const worksheet5 = workbook.Sheets[sheetName5];
 				const jsonData5 = XLSX.utils.sheet_to_json(worksheet5);
+				*/
 
 				console.log(`== ${sheetName1} 시트 내용 ==`);
 				console.log(jsonData1);
@@ -615,10 +617,12 @@
 				console.log(jsonData2);
 				console.log(`== ${sheetName3} 시트 내용 ==`);
 				console.log(jsonData3);
+				/*
 				console.log(`== ${sheetName4} 시트 내용 ==`);
 				console.log(jsonData4);
 				console.log(`== ${sheetName5} 시트 내용 ==`);
 				console.log(jsonData5);
+				*/
 
 				let zscore = [];
 				let subjects = [];
@@ -670,10 +674,61 @@
 				console.log(avg);
 				console.log(avg_subject_select);
 
-				for (var i = 0; i < 17; i++) {
+				// 국어, 수학, 영어 등급컷 산출
+				for (var i = 0; i < 3; i++) {
+					document.getElementById('zscoreinput1').value = zscore[i].join("\n");
+					document.getElementById('search8').value = avg[i + 1];
+					document.getElementById('search9').value = sd[i + 1];
+					document.getElementById('search15').value = i;
+					document.getElementById('search10').click();
+					await html2canvas(document.getElementById('result8')).then(async function (canvas) {
+						// 캔버스를 이미지 URL로 변환
+						var imgURL = canvas.toDataURL('image/png');
+
+						// 이미지 요소에 변환된 이미지 삽입
+						document.getElementById('imageOutput3').src = imgURL;
+						images[i] = document.getElementById('imageOutput3').src;
+					});
+					await html2canvas(document.getElementById('result7')).then(async function (canvas) {
+						// 캔버스를 이미지 URL로 변환
+						var imgURL = canvas.toDataURL('image/png');
+
+						// 이미지 요소에 변환된 이미지 삽입
+						document.getElementById('imageOutput3').src = imgURL;
+						images_margin[i] = document.getElementById('imageOutput3').src;
+					});
+				}
+
+				// 한국사 등급컷 산출
+				document.getElementById('zscoreinput2').value = zscore[3].join("\n");
+				document.getElementById('search11').value = avg[4];
+				document.getElementById('search12').value = sd[4];
+				document.getElementById('search14').value = 3;
+				document.getElementById('search13').click();
+				await html2canvas(document.getElementById('result6')).then(async function (canvas) {
+					// 캔버스를 이미지 URL로 변환
+					var imgURL = canvas.toDataURL('image/png');
+
+					// 이미지 요소에 변환된 이미지 삽입
+					document.getElementById('imageOutput2').src = imgURL;
+					images[3] = document.getElementById('imageOutput2').src;
+				})
+				// html2canvas 사용하여 div를 이미지로 변환
+				await html2canvas(document.getElementById('result5')).then(async function (canvas) {
+					// 캔버스를 이미지 URL로 변환
+					var imgURL = canvas.toDataURL('image/png');
+
+					// 이미지 요소에 변환된 이미지 삽입
+					document.getElementById('imageOutput1').src = imgURL;
+					images_margin[3] = document.getElementById('imageOutput1').src;
+				});
+
+				/*
+				// 사탐 9과목 + 과탐 8과목 등급컷 산출
+				for (var i = 0; i < 13; i++) {
 					document.getElementById('zscoreinput2').value = zscore[i + 4].join("\n");
-					document.getElementById('search11').value = avg[i + 8];
-					document.getElementById('search12').value = sd[i + 8];
+					document.getElementById('search11').value = avg[i + 5];
+					document.getElementById('search12').value = sd[i + 5];
 					document.getElementById('search14').value = i + 8;
 					document.getElementById('search13').click();
 					await html2canvas(document.getElementById('result6')).then(async function (canvas) {
@@ -682,7 +737,7 @@
 
 						// 이미지 요소에 변환된 이미지 삽입
 						document.getElementById('imageOutput2').src = imgURL;
-						images[i] = document.getElementById('imageOutput2').src;
+						images[i + 4] = document.getElementById('imageOutput2').src;
 					})
 					// html2canvas 사용하여 div를 이미지로 변환
 					await html2canvas(document.getElementById('result5')).then(async function (canvas) {
@@ -691,9 +746,10 @@
 
 						// 이미지 요소에 변환된 이미지 삽입
 						document.getElementById('imageOutput1').src = imgURL;
-						images_margin[i] = document.getElementById('imageOutput1').src;
+						images_margin[i + 4] = document.getElementById('imageOutput1').src;
 					});
 				}
+				*/
 				console.log(images);
 				console.log(images_margin);
 			};
