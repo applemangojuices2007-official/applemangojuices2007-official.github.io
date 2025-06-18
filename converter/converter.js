@@ -10,6 +10,15 @@ document.getElementById('pdf-file').addEventListener('change', function (event) 
 	}
 });
 
+function getToday(){
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+
+    return year + month + day;
+}
+
 function handleFileSelect(event) {
 	console.log('비동기 모드로 실행')
 	const file = event.target.files[0];
@@ -132,7 +141,7 @@ async function async_convertCanvasToJPG(canvas, pageNumber, numPages) {
 	const aElement = document.createElement("a");
 	aElement.href = dataURL;
 	aElement.target = "_blank";
-	aElement.download = pageNumber + '.jpg';
+	aElement.download = 'pdf_' + getToday() + '_'  + pageNumber + '.jpg';
 	aElement.innerHTML = pageNumber + "페이지 다운로드";
 	aElement.style.textDecoration = "none";
 	aElement.style.color = '#1ce6cb';
@@ -234,7 +243,7 @@ function convertCanvasToJPG(canvas, pageNumber, numPages) {
 	const aElement = document.createElement("a");
 	aElement.href = dataURL;
 	aElement.target = "_blank"
-	aElement.download = pageNumber + '.jpg';
+	aElement.download = 'pdf_' + getToday() + '_'  + pageNumber + '.jpg';
 	aElement.innerHTML = pageNumber + "페이지 다운로드";
 	aElement.style.textDecoration = "none";
 	aElement.style.color = '#1ce6cb';

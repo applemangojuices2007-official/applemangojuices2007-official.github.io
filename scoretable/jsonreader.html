@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>표준점수표 생성기 - applemangojuices2007</title>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#e8ac33">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#e8ac33">
+	<script src="script.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+</head>
+
+<body>
+	<script>
+		const subjects = ['국어', '수학', '영어', '한국사', '사회', '과학', '통합사회', '통합과학', '생활과 윤리', '윤리와 사상', '한국지리', '세계지리', '동아시아사', '세계사', '경제', '정치와 법', '사회·문화', '물리학I', '화학I', '생명과학I', '지구과학I', '물리학II', '화학II', '생명과학II', '지구과학II'];
+		const colors = ['#E9C203', '#7EA554', '#EF8E2F', '#CC9999', '#b44ed5', '#98B7D5', '#b44ed5', '#98B7D5', '#b44ed5', '#b44ed5', '#b44ed5', '#b44ed5', '#b44ed5', '#b44ed5', '#b44ed5', '#b44ed5', '#b44ed5', '#98B7D5', '#98B7D5', '#98B7D5', '#98B7D5', '#866A9E', '#866A9E', '#866A9E', '#866A9E']
+		function score1() {
+			var a = document.getElementById("search2").value;
+			var b = document.getElementById("search3").value;
+			let resultbox = document.getElementById("result1");
+			resultbox.value = "";
+			for (var i = 100; i >= 0; i--) {
+				var c = (20 * (i - a) / b + 100);
+				var result = i + "점일 때 표준점수: " + Math.round(c);
+				resultbox.value += (result + '\n')
+			}
+		}
+		function score2() {
+			var a = document.getElementById("search5").value;
+			var b = document.getElementById("search6").value;
+			let resultbox = document.getElementById("result2");
+			resultbox.value = "";
+			for (var i = 50; i >= 0; i--) {
+				var c = (10 * (i - a) / b + 50);
+				var result = i + "점일 때 표준점수: " + Math.round(c);
+				resultbox.value += (result + '\n')
+			}
+		}
+		function score3() {
+			var a = document.getElementById("search8").value;
+			var b = document.getElementById("search9").value;
+			var zscoretable = document.getElementById("zscoreinput1").value;
+			let resultbox = document.getElementById("result3");
+
+			var zscorearray = zscoretable.split("\n");
+			resultbox.value = "";
+
+			var grade = 7;
+			if (document.getElementById("search15").value == 2) {
+				for (var i = 2; i <= 9; i++) {
+					document.getElementById("subjectscore" + (grade + 1)).innerHTML = i * 10;
+					document.getElementById("subjectzscore" + (grade + 1)).innerHTML = Math.round(20 * (i * 10 - a) / b + 100);
+					document.getElementById("subjectscore1" + (grade + 1)).innerHTML = i * 10;
+					document.getElementById("subjectzscore1" + (grade + 1)).innerHTML = Math.round(20 * (i * 10 - a) / b + 100);
+					grade--;
+				}
+			}
+			else {
+				for (var i = 0; i <= 100; i++) {
+					var c = (20 * (i - a) / b + 100);
+					if (zscorearray[grade] == Math.round(c)) {
+						resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
+						document.getElementById("subjectscore" + (grade + 1)).innerHTML = i;
+						document.getElementById("subjectzscore" + (grade + 1)).innerHTML = Math.round(20 * (i - a) / b + 100);
+						document.getElementById("subjectscore1" + (grade + 1)).innerHTML = i;
+						document.getElementById("subjectzscore1" + (grade + 1)).innerHTML = Math.round(20 * (i - a) / b + 100);
+						grade--;
+					}
+				}
+			}
+			document.getElementById("subjectzscore0").innerHTML = Math.round(20 * (100 - a) / b + 100);
+			document.getElementById("subjectzscore9").innerHTML = Math.round(20 * (0 - a) / b + 100);
+			document.getElementById("subjectzscore10").innerHTML = Math.round(20 * (100 - a) / b + 100);
+			document.getElementById("subjectzscore19").innerHTML = Math.round(20 * (0 - a) / b + 100);
+			document.getElementById("subjectinfo1").innerHTML = subjects[document.getElementById("search15").value] + '(평균: ' + a + ', 표준편차: ' + b + ')';
+			document.getElementById("subjectinfo2").innerHTML = subjects[document.getElementById("search15").value] + '(평균: ' + a + ', 표준편차: ' + b + ')';
+			document.getElementById("subjectinfo1").style.backgroundColor = colors[document.getElementById("search15").value];
+			document.getElementById("subjectinfo2").style.backgroundColor = colors[document.getElementById("search15").value];
+		}
+		function score4_init() {
+			var grade = 7;
+			document.getElementById("subjectzscore20").innerHTML = '';
+			document.getElementById("subjectzscore29").innerHTML = '';
+			document.getElementById("subjectzscore30").innerHTML = '';
+			document.getElementById("subjectzscore39").innerHTML = '';
+			for (var i = 1; i <= 8; i++) {
+				document.getElementById("subjectscore2" + (grade + 1)).innerHTML = '';
+				document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = '';
+				document.getElementById("subjectscore3" + (grade + 1)).innerHTML = '';
+				document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = '';
+				grade--;
+			}
+		}
+		// 한국사 탐구 계산
+		function score4() {
+			score4_init();
+			var a = document.getElementById("search11").value;
+			var b = document.getElementById("search12").value;
+			var zscoretable = document.getElementById("zscoreinput2").value;
+			let resultbox = document.getElementById("result4");
+
+			var zscorearray = zscoretable.split("\n");
+			resultbox.value = "";
+
+			var grade = 7;
+			if (document.getElementById("search14").value == 3) {
+				for (var i = 1; i <= 8; i++) {
+					document.getElementById("subjectscore2" + (grade + 1)).innerHTML = i * 5;
+					document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = Math.round(10 * (i * 5 - a) / b + 50);
+					document.getElementById("subjectscore3" + (grade + 1)).innerHTML = i * 5;
+					document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = Math.round(10 * (i * 5 - a) / b + 50);
+					grade--;
+				}
+			}
+			else {
+				for (var i = 0; i <= 50; i++) {
+					if (i === 1 || i === 49) {
+						continue; // 1과 49는 건너뜀
+					}
+					var c = (10 * (i - a) / b + 50);
+					if (zscorearray[grade] == Math.round(c)) {
+						resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
+						document.getElementById("subjectscore2" + (grade + 1)).innerHTML = i;
+						document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
+						document.getElementById("subjectscore3" + (grade + 1)).innerHTML = i;
+						document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
+						grade--;
+					}
+					else if(zscorearray[grade] == '-') {
+						resultbox.value = ((grade + 1) + '등급 블랭크 발생' + '\n') + resultbox.value;
+						document.getElementById("subjectscore2" + (grade + 1)).innerHTML = '-';
+						document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = '-';
+						document.getElementById("subjectscore3" + (grade + 1)).innerHTML = '-';
+						document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = '-';
+						grade--;
+					}
+				}
+			}
+			document.getElementById("subjectzscore20").innerHTML = Math.round(10 * (50 - a) / b + 50);
+			document.getElementById("subjectzscore29").innerHTML = Math.round(10 * (0 - a) / b + 50);
+			document.getElementById("subjectzscore30").innerHTML = Math.round(10 * (50 - a) / b + 50);
+			document.getElementById("subjectzscore39").innerHTML = Math.round(10 * (0 - a) / b + 50);
+			document.getElementById("subjectinfo3").innerHTML = subjects[document.getElementById("search14").value] + '(평균: ' + a + ', 표준편차: ' + b + ')';
+			document.getElementById("subjectinfo4").innerHTML = subjects[document.getElementById("search14").value] + '(평균: ' + a + ', 표준편차: ' + b + ')';
+			document.getElementById("subjectinfo3").style.backgroundColor = colors[document.getElementById("search14").value];
+			document.getElementById("subjectinfo4").style.backgroundColor = colors[document.getElementById("search14").value];
+		}
+	</script>
+	<div id="topbar">
+		<div id="title"><a style="text-decoration: none; color: #ffffff" href="index.html">applemangojuices2007</a>
+		</div>
+		<div id="subtitle">표준점수표 생성기</div>
+	</div>
+	<div id="section1">
+		<div id="section2">
+			<div id="sectiontitle">참고사항</div>
+			<div id="section3">
+				<p>모든 과목에서 1점은 존재하지 않으며, 국어, 수학, 영어의 경우 99점, 한국사, 탐구의 경우 49점이 존재하지 않습니다.</p>
+				<p>국어, 수학, 영어는 표준편차 20일때 원점수 1점당 표점이 1점씩 떨어지며, 한국사, 탐구는 표준편차 10일때 원점수 1점당 표점이 1점씩 떨어집니다.</p>
+				<p>원점수가 평균 점수일때 표준점수는 국어, 수학, 영어는 100점, 한국사, 탐구는 50점입니다.</p>
+				<p>등급컷 생성기는 교육청에서 제공하는 영역별 등급 구분점수를 1등급부터 순서대로 여러 줄로 입력해주세요.</p>
+				<p><a href="index.html" style="color: #ffffff">메인 페이지로 이동</a></p>
+				<p><input type="file" id="upload"></p>
+			</div>
+		</div>
+		<div id="section2">
+			<div id="sectiontitle">국어, 수학, 영어 표준점수표 생성기</div>
+			<div id="section3">
+				<p>평균: <input id="search2" type="text" value="50">, 표준편차: <input id="search3" type="text" value="20">
+					<input id="search4" type="button" value="확인" onclick="score1()">
+				</p>
+				<textarea id="result1" readonly="1"></textarea>
+			</div>
+		</div>
+		<div id="section2">
+			<div id="sectiontitle">한국사, 탐구 표준점수표 생성기</div>
+			<div id="section3">
+				<p>평균: <input id="search5" type="text" value="25">, 표준편차: <input id="search6" type="text" value="10">
+					<input id="search7" type="button" value="확인" onclick="score2()">
+				</p>
+				<textarea id="result2" readonly="1"></textarea>
+			</div>
+		</div>
+		<div id="section2">
+			<div id="sectiontitle">국어, 수학, 영어 표점 기반 등급컷 생성기</div>
+			<div id="section3">
+				<p>평균: <input id="search8" type="text" value="50.00">, 표준편차: <input id="search9" type="text"
+						value="20.00">, 과목: <select id="search15" name="과목">
+						<option value="0">국어</option>
+						<option value="1">수학</option>
+						<option value="2">영어</option>
+					</select>
+					<input id="search10" type="button" value="확인" onclick="score3()">
+				</p>
+				<textarea id="zscoreinput1"
+					placeholder="(1등급 구분 표준점수)&#13;(2등급 구분 표준점수)&#13;(3등급 구분 표준점수)&#13;(4등급 구분 표준점수)&#13;(5등급 구분 표준점수)&#13;(6등급 구분 표준점수)&#13;(7등급 구분 표준점수)&#13;(8등급 구분 표준점수)&#13;"></textarea>
+				<textarea id="result3" readonly="1"></textarea>
+				<details>
+					<div id="result7" class="tableforinstagram">
+						<table style="width: 100%; padding-top: 18%; padding-bottom: 18%;" border="1">
+							<tr>
+								<th colspan="3" id="subjectinfo1">국어(평균: 50.00, 표준편차: 20.00)<br></th>
+							</tr>
+							<tr>
+								<th>등급</th>
+								<th>원점수</th>
+								<th>표준점수</th>
+							</tr>
+							<tr>
+								<td>만점</td>
+								<td id="subjectscore0">100</td>
+								<td id="subjectzscore0">--</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td id="subjectscore1">--</td>
+								<td id="subjectzscore1">--</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td id="subjectscore2">--</td>
+								<td id="subjectzscore2">--</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td id="subjectscore3">--</td>
+								<td id="subjectzscore3">--</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td id="subjectscore4">--</td>
+								<td id="subjectzscore4">--</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td id="subjectscore5">--</td>
+								<td id="subjectzscore5">--</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td id="subjectscore6">--</td>
+								<td id="subjectzscore6">--</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td id="subjectscore7">--</td>
+								<td id="subjectzscore7">--</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td id="subjectscore8">--</td>
+								<td id="subjectzscore8">--</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td id="subjectscore9">0</td>
+								<td id="subjectzscore9">--</td>
+							</tr>
+						</table>
+					</div>
+					<button onclick="captureDiv3()">Div를 이미지로 저장</button>
+
+					<br><br>
+
+					<h3>변환된 이미지</h3>
+					<img id="imageOutput3" style="max-width: 100%; border: 1px solid #ccc;" />
+
+					<script>
+						function captureDiv3() {
+							// html2canvas 사용하여 div를 이미지로 변환
+							html2canvas(document.getElementById('result7')).then(function (canvas) {
+								// 캔버스를 이미지 URL로 변환
+								var imgURL = canvas.toDataURL('image/png');
+
+								// 이미지 요소에 변환된 이미지 삽입
+								document.getElementById('imageOutput3').src = imgURL;
+							});
+						}
+					</script>
+				</details>
+				<details>
+					<div id="result8">
+						<table style="width: 100%;" border="1">
+							<tr>
+								<th colspan="3" id="subjectinfo2">국어(평균: 50.00, 표준편차: 20.00)<br></th>
+							</tr>
+							<tr>
+								<th>등급</th>
+								<th>원점수</th>
+								<th>표준점수</th>
+							</tr>
+							<tr>
+								<td>만점</td>
+								<td id="subjectscore10">100</td>
+								<td id="subjectzscore10">--</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td id="subjectscore11">--</td>
+								<td id="subjectzscore11">--</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td id="subjectscore12">--</td>
+								<td id="subjectzscore12">--</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td id="subjectscore13">--</td>
+								<td id="subjectzscore13">--</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td id="subjectscore14">--</td>
+								<td id="subjectzscore14">--</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td id="subjectscore15">--</td>
+								<td id="subjectzscore15">--</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td id="subjectscore16">--</td>
+								<td id="subjectzscore16">--</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td id="subjectscore17">--</td>
+								<td id="subjectzscore17">--</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td id="subjectscore18">--</td>
+								<td id="subjectzscore18">--</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td id="subjectscore19">0</td>
+								<td id="subjectzscore19">--</td>
+							</tr>
+						</table>
+					</div>
+					<button onclick="captureDiv4()">Div를 이미지로 저장</button>
+
+					<br><br>
+
+					<h3>변환된 이미지</h3>
+					<img id="imageOutput4" style="max-width: 100%; border: 1px solid #ccc;" />
+
+					<script>
+						function captureDiv4() {
+							// html2canvas 사용하여 div를 이미지로 변환
+							html2canvas(document.getElementById('result8')).then(function (canvas) {
+								// 캔버스를 이미지 URL로 변환
+								var imgURL = canvas.toDataURL('image/png');
+
+								// 이미지 요소에 변환된 이미지 삽입
+								document.getElementById('imageOutput4').src = imgURL;
+							});
+						}
+					</script>
+				</details>
+			</div>
+		</div>
+		<div id="section2">
+			<div id="sectiontitle">한국사, 탐구 표점 기반 등급컷 생성기</div>
+			<div id="section3">
+				<p>평균: <input id="search11" type="text" value="25.00">, 표준편차: <input id="search12" type="text"
+						value="10.00">, 과목: <select id="search14" name="과목">
+						<option value="3">한국사</option>
+						<option value="4">사회</option>
+						<option value="5">과학</option>
+						<option value="6">통합사회</option>
+						<option value="7">통합과학</option>
+						<option value="8">생활과 윤리</option>
+						<option value="9">윤리와 사상</option>
+						<option value="10">한국지리</option>
+						<option value="11">세계지리</option>
+						<option value="12">동아시아사</option>
+						<option value="13">세계사</option>
+						<option value="14">경제</option>
+						<option value="15">정치와 법</option>
+						<option value="16">사회·문화</option>
+						<option value="17">물리학I</option>
+						<option value="18">화학I</option>
+						<option value="19">생명과학I</option>
+						<option value="20">지구과학I</option>
+						<option value="21">물리학II</option>
+						<option value="22">화학II</option>
+						<option value="23">생명과학II</option>
+						<option value="24">지구과학II</option>
+					</select>
+					<input id="search13" type="button" value="확인" onclick="score4()">
+				</p>
+				<textarea id="zscoreinput2"
+					placeholder="(1등급 구분 표준점수)&#13;(2등급 구분 표준점수)&#13;(3등급 구분 표준점수)&#13;(4등급 구분 표준점수)&#13;(5등급 구분 표준점수)&#13;(6등급 구분 표준점수)&#13;(7등급 구분 표준점수)&#13;(8등급 구분 표준점수)&#13;"></textarea>
+				<textarea id="result4" readonly="1"></textarea>
+				<details>
+					<div id="result5" class="tableforinstagram">
+						<table style="width: 100%; padding-top: 18%; padding-bottom: 18%;" border="1">
+							<tr>
+								<th colspan="3" id="subjectinfo3">한국사(평균: 25.00, 표준편차: 10.00)<br></th>
+							</tr>
+							<tr>
+								<th>등급</th>
+								<th>원점수</th>
+								<th>표준점수</th>
+							</tr>
+							<tr>
+								<td>만점</td>
+								<td id="subjectscore20">50</td>
+								<td id="subjectzscore20">--</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td id="subjectscore21">--</td>
+								<td id="subjectzscore21">--</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td id="subjectscore22">--</td>
+								<td id="subjectzscore22">--</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td id="subjectscore23">--</td>
+								<td id="subjectzscore23">--</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td id="subjectscore24">--</td>
+								<td id="subjectzscore24">--</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td id="subjectscore25">--</td>
+								<td id="subjectzscore25">--</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td id="subjectscore26">--</td>
+								<td id="subjectzscore26">--</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td id="subjectscore27">--</td>
+								<td id="subjectzscore27">--</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td id="subjectscore28">--</td>
+								<td id="subjectzscore28">--</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td id="subjectscore29">0</td>
+								<td id="subjectzscore29">--</td>
+							</tr>
+						</table>
+					</div>
+					<button onclick="captureDiv1()">Div를 이미지로 저장</button>
+
+					<br><br>
+
+					<h3>변환된 이미지</h3>
+					<img id="imageOutput1" style="max-width: 100%; border: 1px solid #ccc;" />
+
+					<script>
+						function captureDiv1() {
+							// html2canvas 사용하여 div를 이미지로 변환
+							html2canvas(document.getElementById('result5')).then(function (canvas) {
+								// 캔버스를 이미지 URL로 변환
+								var imgURL = canvas.toDataURL('image/png');
+
+								// 이미지 요소에 변환된 이미지 삽입
+								document.getElementById('imageOutput1').src = imgURL;
+							});
+						}
+					</script>
+				</details>
+				<details>
+					<div id="result6">
+						<table style="width: 100%;" border="1">
+							<tr>
+								<th colspan="3" id="subjectinfo4">한국사(평균: 25.00, 표준편차: 10.00)<br></th>
+							</tr>
+							<tr>
+								<th>등급</th>
+								<th>원점수</th>
+								<th>표준점수</th>
+							</tr>
+							<tr>
+								<td>만점</td>
+								<td id="subjectscore30">50</td>
+								<td id="subjectzscore30">--</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td id="subjectscore31">--</td>
+								<td id="subjectzscore31">--</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td id="subjectscore32">--</td>
+								<td id="subjectzscore32">--</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td id="subjectscore33">--</td>
+								<td id="subjectzscore33">--</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td id="subjectscore34">--</td>
+								<td id="subjectzscore34">--</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td id="subjectscore35">--</td>
+								<td id="subjectzscore35">--</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td id="subjectscore36">--</td>
+								<td id="subjectzscore36">--</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td id="subjectscore37">--</td>
+								<td id="subjectzscore37">--</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td id="subjectscore38">--</td>
+								<td id="subjectzscore38">--</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td id="subjectscore39">0</td>
+								<td id="subjectzscore39">--</td>
+							</tr>
+						</table>
+					</div>
+					<button onclick="captureDiv2()">Div를 이미지로 저장</button>
+
+					<br><br>
+
+					<h3>변환된 이미지</h3>
+					<img id="imageOutput2" style="max-width: 100%; border: 1px solid #ccc;" />
+
+					<script>
+						function captureDiv2() {
+							// html2canvas 사용하여 div를 이미지로 변환
+							html2canvas(document.getElementById('result6')).then(function (canvas) {
+								// 캔버스를 이미지 URL로 변환
+								var imgURL = canvas.toDataURL('image/png');
+
+								// 이미지 요소에 변환된 이미지 삽입
+								document.getElementById('imageOutput2').src = imgURL;
+							});
+						}
+					</script>
+				</details>
+				<button onclick="downloadBase64Images()">ZIP 다운로드</button>
+				<button onclick="downloadBase64Images2()">ZIP 다운로드(여백)</button>
+			</div>
+		</div>
+		<div style="text-align: center; margin-bottom: 3%; color: #ffffff;">Made by applemangojuices2007, since 2021.
+			08. 15.</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.0/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+	<script>
+		let images = [];
+		let images_margin = [];
+		document.getElementById('upload').addEventListener('change', function (e) {
+			const file = e.target.files[0];
+			const reader = new FileReader();
+
+			reader.onload = async function (event) {
+				const data = new Uint8Array(event.target.result);
+				const workbook = XLSX.read(data, { type: 'array' });
+
+				// 과목명, 평균, 표준편차 로드
+				const sheetName1 = workbook.SheetNames[1];
+				const worksheet1 = workbook.Sheets[sheetName1];
+				const jsonData1 = XLSX.utils.sheet_to_json(worksheet1);
+				// 등급 구분점수 로드
+				const sheetName2 = workbook.SheetNames[4];
+				const worksheet2 = workbook.Sheets[sheetName2];
+				const jsonData2 = XLSX.utils.sheet_to_json(worksheet2);
+				// 누적비율 로드(국수)
+				const sheetName3 = workbook.SheetNames[5];
+				const worksheet3 = workbook.Sheets[sheetName3];
+				const jsonData3 = XLSX.utils.sheet_to_json(worksheet3);
+				// 누적비율 로드(사탐)
+				const sheetName4 = workbook.SheetNames[6];
+				const worksheet4 = workbook.Sheets[sheetName4];
+				const jsonData4 = XLSX.utils.sheet_to_json(worksheet4);
+				// 누적비율 로드(과탐)
+				const sheetName5 = workbook.SheetNames[7];
+				const worksheet5 = workbook.Sheets[sheetName5];
+				const jsonData5 = XLSX.utils.sheet_to_json(worksheet5);
+
+				console.log(`== ${sheetName1} 시트 내용 ==`);
+				console.log(jsonData1);
+				console.log(`== ${sheetName2} 시트 내용 ==`);
+				console.log(jsonData2);
+				console.log(`== ${sheetName3} 시트 내용 ==`);
+				console.log(jsonData3);
+				console.log(`== ${sheetName4} 시트 내용 ==`);
+				console.log(jsonData4);
+				console.log(`== ${sheetName5} 시트 내용 ==`);
+				console.log(jsonData5);
+
+				let zscore = [];
+				let subjects = [];
+				let subjects_select = [];
+
+				var zscoreforsubject = [];
+				var gradecount = 0;
+				var subjectcount = 0;
+
+				for (const item of jsonData2) {
+					if (parseInt(item['__EMPTY_1']) >= 1 && parseInt(item['__EMPTY_1']) < 9) {
+						gradecount = parseInt(item['__EMPTY_1']) - 1;
+						zscoreforsubject[gradecount] = item['__EMPTY_2'];
+					}
+					else if (parseInt(item['__EMPTY_1']) == 9) {
+						zscoreforsubject[8] = item['__EMPTY_2'];
+						gradecount = 0;
+						zscore[subjectcount] = zscoreforsubject;
+						subjects[subjectcount] = item["5. 영역별 등급구분점수 "];
+						subjects_select[subjectcount] = item['__EMPTY'];
+						zscoreforsubject = [];
+						subjectcount++;
+					}
+				}
+
+				console.log(zscore);
+				console.log(subjects);
+				console.log(subjects_select);
+
+				let people = [];
+				let avg = [];
+				let sd = [];
+				let avg_subject = [];
+				let avg_subject_select = [];
+				var subjectcount = 0;
+
+				for (const item of jsonData1) {
+					people[subjectcount] = item['__EMPTY_2'];
+					avg[subjectcount] = item['__EMPTY_3'];
+					sd[subjectcount] = item['__EMPTY_4'];
+					avg_subject[subjectcount] = item['__EMPTY'];
+					avg_subject_select[subjectcount] = item['__EMPTY_1'];
+					subjectcount++;
+				}
+
+				console.log(people);
+				console.log(avg);
+				console.log(sd);
+				console.log(avg);
+				console.log(avg_subject_select);
+
+				for (var i = 0; i < 17; i++) {
+					document.getElementById('zscoreinput2').value = zscore[i + 4].join("\n");
+					document.getElementById('search11').value = avg[i + 8];
+					document.getElementById('search12').value = sd[i + 8];
+					document.getElementById('search14').value = i + 8;
+					document.getElementById('search13').click();
+					await html2canvas(document.getElementById('result6')).then(async function (canvas) {
+						// 캔버스를 이미지 URL로 변환
+						var imgURL = canvas.toDataURL('image/png');
+
+						// 이미지 요소에 변환된 이미지 삽입
+						document.getElementById('imageOutput2').src = imgURL;
+						images[i] = document.getElementById('imageOutput2').src;
+					})
+					// html2canvas 사용하여 div를 이미지로 변환
+					await html2canvas(document.getElementById('result5')).then(async function (canvas) {
+						// 캔버스를 이미지 URL로 변환
+						var imgURL = canvas.toDataURL('image/png');
+
+						// 이미지 요소에 변환된 이미지 삽입
+						document.getElementById('imageOutput1').src = imgURL;
+						images_margin[i] = document.getElementById('imageOutput1').src;
+					});
+				}
+				console.log(images);
+				console.log(images_margin);
+			};
+
+			reader.readAsArrayBuffer(file);
+		});
+
+		function base64ToBlob(base64) {
+			const parts = base64.split(',');
+			const contentType = parts[0].match(/:(.*?);/)[1];
+			const raw = atob(parts[1]);
+			const uInt8Array = new Uint8Array(raw.length);
+
+			for (let i = 0; i < raw.length; i++) {
+				uInt8Array[i] = raw.charCodeAt(i);
+			}
+
+			return new Blob([uInt8Array], { type: contentType });
+		}
+
+		async function downloadBase64Images() {
+			const zip = new JSZip();
+
+			images.forEach((dataUrl, index) => {
+				const blob = base64ToBlob(dataUrl);
+				zip.file(`image_${index + 1}.png`, blob);
+			});
+
+			const content = await zip.generateAsync({ type: "blob" });
+			saveAs(content, "images.zip");
+		}
+		async function downloadBase64Images2() {
+			const zip = new JSZip();
+
+			images_margin.forEach((dataUrl, index) => {
+				const blob = base64ToBlob(dataUrl);
+				zip.file(`image_${index + 1}.png`, blob);
+			});
+
+			const content = await zip.generateAsync({ type: "blob" });
+			saveAs(content, "images.zip");
+		}
+	</script>
+</body>
