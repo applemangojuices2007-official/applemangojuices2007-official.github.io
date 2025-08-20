@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>시험지 파일 다운로드</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<script src="files.json" type="text/javascript"></script>
+		<script>
+			const url = new URL(window.location.href);
+			const urlParams = url.searchParams;
+			if(urlParams.get('index')) {
+				let filesdata = JSON.parse(JSON.stringify(data));
+				var i = 0;
+				while(filesdata[i].index != urlParams.get('index')) {
+					i++;
+				}
+				location.href = filesdata[i].file;
+			}
+		</script>
+	</body>
+</html>
