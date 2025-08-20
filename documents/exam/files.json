@@ -365,91 +365,91 @@ data = [
   },
   {
     "index": 52,
-    "name": "전국연합학력평가 국어 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 국어 문항 가이드라인 pdf",
     "file": "",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 53,
-    "name": "전국연합학력평가 수학 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 수학 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(수학).pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 54,
-    "name": "전국연합학력평가 영어 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 영어 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(영어).pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 55,
-    "name": "전국연합학력평가 사탐 윤리 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 사탐 윤리 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(윤리).pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 56,
-    "name": "전국연합학력평가 사탐 지리 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 사탐 지리 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(지리)_압축.pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 57,
-    "name": "전국연합학력평가 사탐 역사 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 사탐 역사 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(역사)_압축.pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 58,
-    "name": "전국연합학력평가 사탐 일반사회 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 사탐 일반사회 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(일반사회).pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 59,
-    "name": "전국연합학력평가 물리학 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 물리학 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(물리학)_압축.pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 60,
-    "name": "전국연합학력평가 화학 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 화학 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(화학).pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 61,
-    "name": "전국연합학력평가 생명과학 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 생명과학 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(생명과학).pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 62,
-    "name": "전국연합학력평가 지구과학 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 지구과학 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(지구과학)_압축.pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 63,
-    "name": "전국연합학력평가 제2외국어 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 제2외국어 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(제2외국어)_압축.pdf",
     "group": "exam_pdf",
     "type": "pdf"
   },
   {
     "index": 64,
-    "name": "전국연합학력평가 직업탐구 문항 가이드라인 hwp",
+    "name": "전국연합학력평가 직업탐구 문항 가이드라인 pdf",
     "file": "2024 평가문항 제작 방법(직탐)_압축.pdf",
     "group": "exam_pdf",
     "type": "pdf"

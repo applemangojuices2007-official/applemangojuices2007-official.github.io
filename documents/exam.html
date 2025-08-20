@@ -1,22 +1,93 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>시험지 파일 다운로드</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<script src="exam/files.json" type="text/javascript"></script>
-		<script>
-			const url = new URL(window.location.href);
-			const urlParams = url.searchParams;
-			if(urlParams.get('index')) {
-				let filesdata = JSON.parse(JSON.stringify(data));
-				var i = 0;
-				while(filesdata[i].index != urlParams.get('index')) {
-					i++;
-				}
-				location.href = 'exam/' + filesdata[i].file;
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#e8ac33">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#e8ac33">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+	<title>시험지 파일 다운로드 - applemangojuices2007</title>
+</head>
+
+<body>
+	<script src="exam/files.json" type="text/javascript"></script>
+	<script>
+		const url = new URL(window.location.href);
+		const urlParams = url.searchParams;
+		if (urlParams.get('index')) {
+			let filesdata = JSON.parse(JSON.stringify(data));
+			var i = 0;
+			while (filesdata[i].index != urlParams.get('index')) {
+				i++;
 			}
-		</script>
-	</body>
+			location.href = 'exam/' + filesdata[i].file;
+		}
+	</script>
+	<div id="topbar">
+		<div id="title"><a style="text-decoration: none; color: #ffffff" href="index.html">applemangojuices2007</a>
+		</div>
+		<div id="subtitle">전국연합학력평가 관련 파일 다운로드</div>
+	</div>
+	<div id="section1">
+		<div id="section2">
+			<div id="sectiontitle">참고사항</div>
+			<div id="section3">
+				<p>여기서 전국연합학력평가 hwp 파일을 다운받을 수 있습니다.</p>
+				<p>또한 여러 가지 제작 가이드라인을 받을 수 있습니다.</p>
+				<p>hwp 파일은 인천광역시교육청에서 가져왔으며,
+				<p>가이드라인 pdf 파일은 경기도교육청에서 가져왔습니다.</p>
+				<p>문제가 될 경우 삭제합니다.</p>
+				<p><a href="../index.html" style="color: #ffffff">메인 페이지로 이동</a></p>
+			</div>
+		</div>
+		<div id="section2">
+			<div id="sectiontitle">전국연합학력평가 hwp 다운로드</div>
+			<div id="section3">
+				<div id="examhwp"></div>
+			</div>
+		</div>
+		<div id="section2">
+			<div id="sectiontitle">전국연합학력평가 가이드라인 다운로드</div>
+			<div id="section3">
+				<div id="examguideline"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		let filesdata = JSON.parse(JSON.stringify(data));
+		let examhwp = [];
+		let examguideline = [];
+		for(var i=0; i<filesdata.length; i++) {
+			for(var j=i; j<filesdata.length; j++) {
+				if(filesdata[i].index > filesdata[j].index) {
+					let temp = filesdata[i];
+					filesdata[i] = filesdata[j];
+					filesdata[j] = temp;
+				}
+			}
+		}
+		for(var i=0; i<filesdata.length;i++) {
+			if(filesdata[i].file == '') {
+				continue;
+			}
+			if (filesdata[i].group == 'go1_hwp' || filesdata[i].group == 'go2_hwp' || filesdata[i].group == 'go3_hwp') {
+				examhwp.push('<p><a id="project_link" target="_blank" href="?index=' + filesdata[i].index + '" style="">' + filesdata[i].name + '</a></p>');
+			} else if (filesdata[i].group == 'exam_hwp' || filesdata[i].group == 'exam_pdf') {
+				examguideline.push('<p><a id="project_link" target="_blank" href="?index=' + filesdata[i].index + '" style="">' + filesdata[i].name + '</a></p>');
+			}
+		}
+		for(var i=0; i<examhwp.length; i++) {
+			document.getElementById('examhwp').innerHTML += examhwp[i];
+		}
+		for(var i=0; i<examguideline.length; i++) {
+			document.getElementById('examguideline').innerHTML += examguideline[i];
+		}
+	</script>
+</body>
+
 </html>
