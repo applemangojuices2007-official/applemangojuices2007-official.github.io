@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HWP 뷰어 (hwp.js)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+
+    #viewer {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      white-space: pre-wrap;
+      background-color: #f9f9f9;
+      min-height: 200px;
+    }
+
+    input[type="file"], input[type="text"], button {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    #dropZone {
+      border: 2px dashed #999;
+      padding: 40px;
+      text-align: center;
+      color: #666;
+      margin-top: 20px;
+      background-color: #f0f0f0;
+      transition: background-color 0.3s;
+    }
+
+    #dropZone.dragover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📄 HWP 파일 뷰어</h1>
+
+  <h3>1. 파일 업로드</h3>
+  <input type="file" id="hwpInput" accept=".hwp" />
+
+  <h3>2. 드래그 앤 드롭</h3>
+  <div id="dropZone">여기로 HWP 파일을 드래그 앤 드롭하세요</div>
+
+  <h3>3. 온라인 HWP 파일 URL</h3>
+  <input type="text" id="urlInput" placeholder="https://example.com/sample.hwp" style="width: 100%;" />
+  <button id="loadUrlBtn">URL에서 불러오기</button>
+
+  <div id="viewer">여기에 문서 내용이 표시됩니다.</div>
+
+  <!-- hwp.js 라이브러리 로드 -->
+  <script src="https://cdn.jsdelivr.net/npm/hwp.js/dist/hwp.min.js"></script>
+  <script>
+    const input = document.getElementById('hwpInput');
+    const dropZone = document.getElementById('dropZone');
+    const urlInput = document.getElementById('urlInput');
+    const loadUrlBtn = document.getElementById('loadUrlBtn');
+    const viewer = document.getElementById('viewer');
+
+    // 공통 처리 함수
+    async function handleArrayBuffer(arrayBuffer) {
+      try {
+        const hwpDocument = await HWP.read(arrayBuffer);
+        const html = HWP.toHTML(hwpDocument);
+        viewer.innerHTML = html;
+      } catch (err) {
+        viewer.innerHTML = `<p style="color:red;">⚠️ 오류: HWP 파일을 읽을 수 없습니다.</p>`;
+        console.error(err);
+      }
+    }
+
+    // 파일 선택
+    input.addEventListener('change', async (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const arrayBuffer = await file.arrayBuffer();
+        handleArrayBuffer(arrayBuffer);
+      }
+    });
+
+    // 드래그 앤 드롭 처리
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', async (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.name.endsWith('.hwp')) {
+        const arrayBuffer = await file.arrayBuffer();
+        handleArrayBuffer(arrayBuffer);
+      } else {
+        viewer.innerHTML = `<p style="color:red;">⚠️ HWP 파일만 지원됩니다.</p>`;
+      }
+    });
+
+    // URL에서 파일 불러오기
+    loadUrlBtn.addEventListener('click', async () => {
+      const url = urlInput.value.trim();
+      if (!url) return alert('URL을 입력해주세요.');
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('파일을 불러올 수 없습니다.');
+        const arrayBuffer = await response.arrayBuffer();
+        handleArrayBuffer(arrayBuffer);
+      } catch (err) {
+        viewer.innerHTML = `<p style="color:red;">⚠️ 오류: URL에서 파일을 불러오지 못했습니다.</p>`;
+        console.error(err);
+      }
+    });
+  </script>
+
+</body>
+</html>
