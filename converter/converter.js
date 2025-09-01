@@ -68,6 +68,7 @@ async function async_loadPDF(pdfData) {
 	document.getElementById('convertstatuscolor').innerHTML = '파일 불러오는 중';
 	document.getElementById('convertstatuscolor').style.color = '#f2ff00';
 	document.getElementById('images-container').innerHTML = '';
+	document.getElementById('images-container-preview').innerHTML = '';
 	document.getElementById("downloadallbutton").innerHTML = '';
 
 	try {
@@ -135,12 +136,14 @@ async function async_convertCanvasToJPG(canvas, pageNumber, numPages) {
 	imgElement.src = dataURL;
 	imgElement.classList.add('pdf-image');
 	imgElement.style.order = pageNumber;
-
 	// 이미지 컨테이너에 추가
 	const imagesContainer = document.getElementById('images-container');
+	const imagesContainerPreview = document.getElementById('images-container-preview');
+	//imagesContainer.appendChild(imgElement);
+	// 링크 만들기
 	const aElement = document.createElement("a");
 	aElement.href = dataURL;
-	aElement.target = "_blank";
+	aElement.target = "_blank"
 	aElement.download = 'pdf_' + getToday() + '_'  + pageNumber + '.jpg';
 	aElement.innerHTML = pageNumber + "페이지 다운로드";
 	aElement.style.textDecoration = "none";
@@ -148,6 +151,16 @@ async function async_convertCanvasToJPG(canvas, pageNumber, numPages) {
 	aElement.style.width = '100%';
 	aElement.style.order = pageNumber;
 	imagesContainer.append(aElement);
+
+	const aElementPreview = document.createElement("a");
+	aElementPreview.target = "_blank"
+	aElementPreview.style.textDecoration = "none";
+	aElementPreview.style.color = '#1ce6cb';
+	aElementPreview.style.width = '100%';
+	aElementPreview.style.order = pageNumber;
+	aElementPreview.href = 'preview.html?img=' + encodeURIComponent(dataURL) + '&page=' + pageNumber;
+	aElementPreview.innerHTML = pageNumber + "페이지 미리보기";
+	imagesContainerPreview.append(aElementPreview);
 
 	console.log(pageNumber);
 
@@ -175,6 +188,7 @@ function loadPDF(pdfData) {
 	document.getElementById('convertstatuscolor').innerHTML = '파일 불러오는 중';
 	document.getElementById('convertstatuscolor').style.color = '#f2ff00'
 	document.getElementById('images-container').innerHTML = '';
+	document.getElementById('images-container-preview').innerHTML = '';
 	document.getElementById("downloadallbutton").innerHTML = '';
 
 	// PDF.js를 사용하여 PDF 파일을 로드합니다.
@@ -238,6 +252,7 @@ function convertCanvasToJPG(canvas, pageNumber, numPages) {
 	imgElement.style.order = pageNumber;
 	// 이미지 컨테이너에 추가
 	const imagesContainer = document.getElementById('images-container');
+	const imagesContainerPreview = document.getElementById('images-container-preview');
 	//imagesContainer.appendChild(imgElement);
 	// 링크 만들기
 	const aElement = document.createElement("a");
@@ -250,6 +265,16 @@ function convertCanvasToJPG(canvas, pageNumber, numPages) {
 	aElement.style.width = '100%';
 	aElement.style.order = pageNumber;
 	imagesContainer.append(aElement);
+
+	const aElementPreview = document.createElement("a");
+	aElementPreview.target = "_blank"
+	aElementPreview.style.textDecoration = "none";
+	aElementPreview.style.color = '#1ce6cb';
+	aElementPreview.style.width = '100%';
+	aElementPreview.style.order = pageNumber;
+	aElementPreview.href = 'preview.html?img=' + encodeURIComponent(dataURL) + '&page=' + pageNumber;
+	aElementPreview.innerHTML = pageNumber + "페이지 미리보기";
+	imagesContainerPreview.append(aElementPreview);
 	console.log(pageNumber);
 
 	convertedfiles += 1;
