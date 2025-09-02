@@ -206,9 +206,9 @@ async function async_convertCanvasToJPG(canvas, pageNumber, numPages) {
 	// aElementPreview.target = "_blank"
 	aElementPreview.style.textDecoration = "none";
 	aElementPreview.style.width = '100%';
-	aElementPreview.style.paddingtop = '0.7%';
-	aElementPreview.style.paddingbottom = '0.7%';
-	aElementPreview.style.fontsize = '100%';
+	aElementPreview.style.paddingTop = '0.7%';
+	aElementPreview.style.paddingBottom = '0.7%';
+	aElementPreview.style.fontSize = '100%';
 	aElementPreview.style.order = pageNumber;
 	aElementPreview.setAttribute("onclick", `popup('${dataURL}')`);
 	aElementPreview.innerHTML = pageNumber + "페이지 미리보기";
@@ -322,9 +322,9 @@ function convertCanvasToJPG(canvas, pageNumber, numPages) {
 	// aElementPreview.target = "_blank"
 	aElementPreview.style.textDecoration = "none";
 	aElementPreview.style.width = '100%';
-	aElementPreview.style.paddingtop = '0.7%';
-	aElementPreview.style.paddingbottom = '0.7%';
-	aElementPreview.style.fontsize = '100%';
+	aElementPreview.style.paddingTop = '0.7%';
+	aElementPreview.style.paddingBottom = '0.7%';
+	aElementPreview.style.fontSize = '100%';
 	aElementPreview.style.order = pageNumber;
 	aElementPreview.setAttribute("onclick", `popup('${dataURL}')`);
 	aElementPreview.innerHTML = pageNumber + "페이지 미리보기";
@@ -437,6 +437,7 @@ sizeradios.forEach(radio => {
 		}
 	});
 });
+
 
 
 
