@@ -19,6 +19,56 @@ function getToday(){
     return year + month + day;
 }
 
+function popup(url) {
+	const newWindow = window.open('', 'pdfpreview');
+	if (newWindow) {
+	    // 새 창의 document 객체를 가져옴
+	    const doc = newWindow.document;
+	    doc.write(`
+	 		<!DOCTYPE html>
+			<html lang="ko">
+			    <head>
+			        <meta charset="UTF-8">
+			        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			        <meta name="theme-color" content="#e8ac33">
+			        <meta name="apple-mobile-web-app-status-bar-style" content="#e8ac33">
+			        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+			        <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+			        <title>PDF to JPG Preview - applemangojuices2007</title>
+			        <style>
+			            html,
+			            body {
+			                margin: 0;
+			                padding: 0;
+			                height: 100%;
+			            }
+			    
+			            #images-container {
+			                display: flex;
+			                flex-wrap: wrap;
+			                gap: 10px;
+			                display: block;
+			            }
+			    
+			            .pdf-image {
+			                max-width: 100%;
+			                border: 1px solid #ccc;
+			            }
+			    
+			            #pdf-file {
+			                font-size: 100%;
+			            }
+			        </style>
+			    </head>
+			    <body>
+			        <img src="` + url + `" style="max-width: 100%; height: auto; vertical-align: bottom;">
+			    </body>
+			</html>
+		`);
+		doc.close();
+	}
+}
+
 function handleFileSelect(event) {
 	console.log('비동기 모드로 실행')
 	const file = event.target.files[0];
@@ -152,13 +202,12 @@ async function async_convertCanvasToJPG(canvas, pageNumber, numPages) {
 	aElement.style.order = pageNumber;
 	imagesContainer.append(aElement);
 
-	const aElementPreview = document.createElement("a");
-	aElementPreview.target = "_blank"
+	const aElementPreview = document.createElement("button");
+	// aElementPreview.target = "_blank"
 	aElementPreview.style.textDecoration = "none";
-	aElementPreview.style.color = '#1ce6cb';
 	aElementPreview.style.width = '100%';
 	aElementPreview.style.order = pageNumber;
-	aElementPreview.href = 'preview.html?img=' + encodeURIComponent(dataURL) + '&page=' + pageNumber;
+	aElementPreview.onclick = `popup(${dataURL})`
 	aElementPreview.innerHTML = pageNumber + "페이지 미리보기";
 	imagesContainerPreview.append(aElementPreview);
 
@@ -266,16 +315,14 @@ function convertCanvasToJPG(canvas, pageNumber, numPages) {
 	aElement.style.order = pageNumber;
 	imagesContainer.append(aElement);
 
-	const aElementPreview = document.createElement("a");
-	aElementPreview.target = "_blank"
+	const aElementPreview = document.createElement("button");
+	// aElementPreview.target = "_blank"
 	aElementPreview.style.textDecoration = "none";
-	aElementPreview.style.color = '#1ce6cb';
 	aElementPreview.style.width = '100%';
 	aElementPreview.style.order = pageNumber;
-	aElementPreview.href = 'preview.html?img=' + encodeURIComponent(dataURL) + '&page=' + pageNumber;
+	aElementPreview.onclick = `popup(${dataURL})`
 	aElementPreview.innerHTML = pageNumber + "페이지 미리보기";
 	imagesContainerPreview.append(aElementPreview);
-	console.log(pageNumber);
 
 	convertedfiles += 1;
 	document.getElementById('convertstatuscolor').innerHTML = '파일 변환 중(' + convertedfiles + '/' + numPages + ')';
@@ -384,3 +431,4 @@ sizeradios.forEach(radio => {
 		}
 	});
 });
+
