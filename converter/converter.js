@@ -207,7 +207,7 @@ async function async_convertCanvasToJPG(canvas, pageNumber, numPages) {
 	aElementPreview.style.textDecoration = "none";
 	aElementPreview.style.width = '100%';
 	aElementPreview.style.order = pageNumber;
-	aElementPreview.onclick = `popup(${dataURL})`
+	aElementPreview.setAttribute("onclick", `popup(${dataURL})`);
 	aElementPreview.innerHTML = pageNumber + "페이지 미리보기";
 	imagesContainerPreview.append(aElementPreview);
 
@@ -320,7 +320,7 @@ function convertCanvasToJPG(canvas, pageNumber, numPages) {
 	aElementPreview.style.textDecoration = "none";
 	aElementPreview.style.width = '100%';
 	aElementPreview.style.order = pageNumber;
-	aElementPreview.onclick = `popup(${dataURL})`
+	aElementPreview.setAttribute("onclick", `popup(${dataURL})`);
 	aElementPreview.innerHTML = pageNumber + "페이지 미리보기";
 	imagesContainerPreview.append(aElementPreview);
 
@@ -431,4 +431,5 @@ sizeradios.forEach(radio => {
 		}
 	});
 });
+
 
