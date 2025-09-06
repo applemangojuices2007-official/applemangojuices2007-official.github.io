@@ -76,6 +76,8 @@ async function async_loadPDF(pdfData) {
 		const pdf = await pdfjsLib.getDocument(pdfData).promise;
 		console.log('PDF loaded');
 		const numPages = pdf.numPages;
+		document.getElementById('convertprogress').value = 0;
+		document.getElementById('convertprogress').max = numPages;
 
 		// 모든 페이지를 동기적으로 렌더링합니다.
 		for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
@@ -97,7 +99,7 @@ async function async_renderPage(pdf, pageNumber, numPages) {
 		// 페이지의 크기 (너비, 높이)를 확인
 		const originalWidth = page.getViewport({ scale: 1 }).width;
 		const originalHeight = page.getViewport({ scale: 1 }).height;
-		let viewport = page.getViewport({ scale: (2000 / originalWidth) });
+		let viewport = page.getViewport({ scale: (2480 / originalWidth) });
 		if (document.getElementById('auto_size').checked) {
 			width = document.getElementById('size_width_value').value;
 			height = document.getElementById('size_height_value').value;
@@ -108,11 +110,11 @@ async function async_renderPage(pdf, pageNumber, numPages) {
 				viewport = page.getViewport({ scale: (height / originalHeight) });
 			}
 			else {
-				viewport = page.getViewport({ scale: (2000 / originalWidth) });
+				viewport = page.getViewport({ scale: (2480 / originalWidth) });
 			}
 		}
 		else {
-			viewport = page.getViewport({ scale: (2000 / originalWidth) });
+			viewport = page.getViewport({ scale: (2480 / originalWidth) });
 		}
 		canvas.width = viewport.width;
 		canvas.height = viewport.height;
@@ -167,6 +169,7 @@ async function async_convertCanvasToJPG(canvas, pageNumber, numPages) {
 	convertedfiles += 1;
 	document.getElementById('convertstatuscolor').innerHTML = '파일 변환 중(' + convertedfiles + '/' + numPages + ')';
 	document.getElementById('convertstatuscolor').style.color = '#f2ff00';
+	document.getElementById('convertprogress').value = convertedfiles;
 
 	if (convertedfiles === numPages) {
 		document.getElementById('convertstatuscolor').innerHTML = '파일 변환 완료';
@@ -195,6 +198,9 @@ function loadPDF(pdfData) {
 	pdfjsLib.getDocument(pdfData).promise.then((pdf) => {
 		console.log('PDF loaded');
 		const numPages = pdf.numPages;
+		document.getElementById('convertprogress').value = 0;
+		document.getElementById('convertprogress').max = numPages;
+
 		for (let pageNumber = 1; pageNumber <= numPages; pageNumber++) {
 			renderPage(pdf, pageNumber, numPages);
 		}
@@ -224,11 +230,11 @@ function renderPage(pdf, pageNumber, numPages) {
 				viewport = page.getViewport({ scale: (height / originalHeight) });
 			}
 			else {
-				viewport = page.getViewport({ scale: (2000 / originalWidth) });
+				viewport = page.getViewport({ scale: (2480 / originalWidth) });
 			}
 		}
 		else {
-			viewport = page.getViewport({ scale: (2000 / originalWidth) });
+			viewport = page.getViewport({ scale: (2480 / originalWidth) });
 		}
 		canvas.width = viewport.width;
 		canvas.height = viewport.height;
@@ -280,6 +286,7 @@ function convertCanvasToJPG(canvas, pageNumber, numPages) {
 	convertedfiles += 1;
 	document.getElementById('convertstatuscolor').innerHTML = '파일 변환 중(' + convertedfiles + '/' + numPages + ')';
 	document.getElementById('convertstatuscolor').style.color = '#f2ff00'
+	document.getElementById('convertprogress').value = convertedfiles;
 	if (convertedfiles == numPages) {
 		document.getElementById('convertstatuscolor').innerHTML = '파일 변환 완료';
 		document.getElementById('convertstatuscolor').style.color = '#00ff00'

@@ -1,14 +1,16 @@
 * {
 	font-family: 'Nanum Gothic', sans-serif;
 }
+
 body {
 	margin: 0;
-	background-color : #222222;
+	background-color: #222222;
 	font-family: 'Nanum Gothic', sans-serif;
 }
+
 #toolbar {
 	color: #FFFFFF;
-	z-index:1;
+	z-index: 1;
 	display: inline-block;
 	position: fixed;
 	width: 100%;
@@ -19,14 +21,16 @@ body {
 	text-align: center;
 	font-size: 3vw;
 }
+
 #toolbarlink {
 	color: #FFFFFF;
 	text-decoration: none;
 }
+
 #topbar {
 	background-color: #e8ac33;
 	color: #FFFFFF;
-	z-index:2;
+	z-index: 2;
 	display: inline-block;
 	position: relative;
 	width: 100%;
@@ -36,17 +40,21 @@ body {
 	overflow: hidden;
 	text-align: center;
 }
+
 #title {
 	font-size: 7vw;
 	color: #ffffff;
 }
+
 #subtitle {
 	padding-top: 2%;
 	font-size: 4vw;
 }
+
 #section1 {
 	padding: 1% 5%;
 }
+
 #section2 {
 	border-style: solid;
 	border-radius: 0.5em;
@@ -54,16 +62,19 @@ body {
 	margin: 2% 0% 10% 0%;
 	box-shadow: 0 0 20px #FFFFFF;
 }
+
 #sectiontitle {
 	font-size: 5vw;
 	padding: 2% 0 0 2%;
 	color: #0d8a0d;
 }
+
 #section3 {
 	padding: 0 2% 0 2%;
 	font-size: 2vw;
 	color: #ffffff;
 }
+
 #instalink {
 	color: #FFFFFF;
 	background-color: #DD3333;
@@ -71,59 +82,71 @@ body {
 	padding: 1%;
 	border-radius: 0.5em;
 }
+
 #search {
 	margin-top: 5%;
 	width: 90%;
 	font-size: 3vw;
 	padding: 2%;
 }
+
 summary {
 	margin-top: 2%;
 	margin-bottom: 2%;
 	color: #5522FF
 }
+
 summary#project {
 	margin-top: 2%;
 	margin-bottom: 2%;
 	color: #00fd19;
 }
+
 .item {
 	margin-top: 2%;
 	margin-left: 2%;
 	font-size: 3vw;
 }
-.item > a {
+
+.item>a {
 	cursor: point;
 	text-decoration: none;
 	color: #FFFFFF;
 }
-.item > a:hover {
+
+.item>a:hover {
 	color: #00FF00;
 }
+
 #hits {
 	width: 70%;
 	height: 70%;
 }
+
 #project_link {
 	color: #e8ca33;
 	text-decoration: none;
 }
+
 #project_link:hover {
 	color: #e8ca33;
 	text-decoration: underline;
 }
+
 #search2 {
 	margin-top: 2%;
 	width: 20%;
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search3 {
 	margin-top: 2%;
 	width: 20%;
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search4 {
 	margin-top: 2%;
 	margin-left: 2%;
@@ -131,18 +154,21 @@ summary#project {
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search5 {
 	margin-top: 2%;
 	width: 20%;
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search6 {
 	margin-top: 2%;
 	width: 20%;
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search7 {
 	margin-top: 2%;
 	margin-left: 2%;
@@ -150,18 +176,21 @@ summary#project {
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search8 {
 	margin-top: 2%;
 	width: 20%;
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search9 {
 	margin-top: 2%;
 	width: 20%;
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search10 {
 	margin-top: 2%;
 	margin-left: 2%;
@@ -169,18 +198,21 @@ summary#project {
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search11 {
 	margin-top: 2%;
 	width: 20%;
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search12 {
 	margin-top: 2%;
 	width: 20%;
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #search13 {
 	margin-top: 2%;
 	margin-left: 2%;
@@ -188,74 +220,109 @@ summary#project {
 	font-size: 2vw;
 	padding: 1%;
 }
+
 #result1 {
-    width: 96%;
-    height: 20vw;
+	width: 96%;
+	height: 20vw;
 	padding: 1%;
 	margin: 1%;
 	font-size: 2vw;
-    border: none;
-    resize: none;
+	border: none;
+	resize: none;
 }
+
 #result2 {
-    width: 96%;
-    height: 20vw;
+	width: 96%;
+	height: 20vw;
 	padding: 1%;
 	margin: 1%;
 	font-size: 2vw;
-    border: none;
-    resize: none;
+	border: none;
+	resize: none;
 }
+
 #result3 {
-    width: 96%;
-    height: 20vw;
+	width: 96%;
+	height: 20vw;
 	padding: 1%;
 	margin: 1%;
 	font-size: 2vw;
-    border: none;
-    resize: none;
+	border: none;
+	resize: none;
 }
+
 #result4 {
-    width: 96%;
-    height: 20vw;
+	width: 96%;
+	height: 20vw;
 	padding: 1%;
 	margin: 1%;
 	font-size: 2vw;
-    border: none;
-    resize: none;
+	border: none;
+	resize: none;
 }
+
 #zscoreinput1 {
-    width: 96%;
-    height: 20vw;
+	width: 96%;
+	height: 20vw;
 	padding: 1%;
 	margin: 1%;
 	font-size: 2vw;
-    border: none;
-    resize: none;
+	border: none;
+	resize: none;
 }
+
 #zscoreinput2 {
-    width: 96%;
-    height: 20vw;
+	width: 96%;
+	height: 20vw;
 	padding: 1%;
 	margin: 1%;
 	font-size: 2vw;
-    border: none;
-    resize: none;
+	border: none;
+	resize: none;
 }
-#async_true, #async_false, #auto_size, #size_width, #size_height {
+
+#async_true,
+#async_false,
+#auto_size,
+#size_width,
+#size_height {
 	transform: scale(1.4);
 	vertical-align: 4px;
 }
+
 label {
 	vertical-align: 0px;
 	font-size: 2vw;
 	margin-left: 5px;
 }
-#size_width_value, #size_height_value {
+
+#size_width_value,
+#size_height_value {
 	width: 8%;
 	font-size: 2vw;
 	padding: 0.4%;
 	margin-left: 1%;
 	margin-right: 0.5%;
 	text-align: center;
+}
+
+progress {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	/* Firefox */
+	appearance: none;
+	/* 기타 기본 스타일 제거 */
+	border: 0;
+	border-radius: 9px;
+	/* 원하는 모양을 위해 */
+}
+
+::-webkit-progress-bar {
+	background-color: grey;
+	border-radius: 9px;
+}
+
+::-webkit-progress-value {
+	background-color: #05b024;
+	border-radius: 9px;
 }
