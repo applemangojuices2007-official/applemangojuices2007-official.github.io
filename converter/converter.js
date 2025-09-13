@@ -377,7 +377,9 @@ async function async_downloadAllFiles() {
 		const filePromise = fetch(fileUrl)
 			.then(response => response.blob())  // 파일을 Blob 형식으로 다운로드
 			.then(blob => {
-				zip.file(fileName, blob);  // ZIP 파일에 파일 추가
+				const baseDate = new Date();
+                const fileDate = new Date(baseDate.getTime() - (links.length - 1 - index) * 1000);
+                zip.file(fileName, blob, { date: fileDate });
 			})
 			.catch(error => console.error(`파일 다운로드 실패: ${fileName}`, error));
 
@@ -444,6 +446,7 @@ sizeradios.forEach(radio => {
 		}
 	});
 });
+
 
 
 
