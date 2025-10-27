@@ -1,93 +1,112 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#e8ac33">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#e8ac33">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+		<link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+		
+		<!-- HTML Meta Tags -->
+		<title>시험지 파일 다운로드</title>
+		<meta name="description" content="2018년 교육청 모의고사 hwp 파일과 모의고사 문항 제작 가이드라인 파일을 다운로드할 수 있습니다.">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#e8ac33">
-	<meta name="apple-mobile-web-app-status-bar-style" content="#e8ac33">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
-	<link rel="shortcut icon" type="image/x-icon" href="icon.ico">
-	<title>시험지 파일 다운로드 - applemangojuices2007</title>
-</head>
+		<!-- Facebook Meta Tags -->
+		<meta property="og:url" content="https://400.kro.kr/documents/exam.html">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="시험지 파일 다운로드">
+		<meta property="og:description" content="2018년 교육청 모의고사 hwp 파일과 모의고사 문항 제작 가이드라인 파일을 다운로드할 수 있습니다.">
+		<meta property="og:image"
+			content="https://opengraph.b-cdn.net/production/images/3747dd5d-2f4e-4c30-b8d2-e5b521b4d667.png?token=1iksibZla82Wn3mEtX-DozOmF-dKb2uesr7puSnmEiY&height=675&width=1200&expires=33297553809">
 
-<body>
-	<script src="exam/files.json" type="text/javascript"></script>
-	<script>
-		const url = new URL(window.location.href);
-		const urlParams = url.searchParams;
-		if (urlParams.get('index')) {
-			let filesdata = JSON.parse(JSON.stringify(data));
-			var i = 0;
-			while (filesdata[i].index != urlParams.get('index')) {
-				i++;
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:domain" content="400.kro.kr">
+		<meta property="twitter:url" content="https://400.kro.kr/documents/exam.html">
+		<meta name="twitter:title" content="시험지 파일 다운로드">
+		<meta name="twitter:description" content="2018년 교육청 모의고사 hwp 파일과 모의고사 문항 제작 가이드라인 파일을 다운로드할 수 있습니다.">
+		<meta name="twitter:image"
+			content="https://opengraph.b-cdn.net/production/images/3747dd5d-2f4e-4c30-b8d2-e5b521b4d667.png?token=1iksibZla82Wn3mEtX-DozOmF-dKb2uesr7puSnmEiY&height=675&width=1200&expires=33297553809">
+
+		<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+	</head>
+	<body>
+		<script src="exam/files.json" type="text/javascript"></script>
+		<script>
+			const url = new URL(window.location.href);
+			const urlParams = url.searchParams;
+			if (urlParams.get('index')) {
+				let filesdata = JSON.parse(JSON.stringify(data));
+				var i = 0;
+				while (filesdata[i].index != urlParams.get('index')) {
+					i++;
+				}
+				location.href = 'exam/' + filesdata[i].file;
 			}
-			location.href = 'exam/' + filesdata[i].file;
-		}
-	</script>
-	<div id="topbar">
-		<div id="title"><a style="text-decoration: none; color: #ffffff" href="index.html">applemangojuices2007</a>
+		</script>
+		<div id="topbar">
+			<div id="title"><a style="text-decoration: none; color: #ffffff" href="index.html">applemangojuices2007</a>
+			</div>
+			<div id="subtitle">전국연합학력평가 관련 파일 다운로드</div>
 		</div>
-		<div id="subtitle">전국연합학력평가 관련 파일 다운로드</div>
-	</div>
-	<div id="section1">
-		<div id="section2">
-			<div id="sectiontitle">참고사항</div>
-			<div id="section3">
-				<p>여기서 전국연합학력평가 hwp 파일을 다운받을 수 있습니다.</p>
-				<p>또한 여러 가지 제작 가이드라인을 받을 수 있습니다.</p>
-				<p>hwp 파일은 인천광역시교육청에서 가져왔으며,
-				<p>가이드라인 pdf 파일은 경기도교육청에서 가져왔습니다.</p>
-				<p>문제가 될 경우 삭제합니다.</p>
-				<p><a href="../index.html" style="color: #ffffff">메인 페이지로 이동</a></p>
+		<div id="section1">
+			<div id="section2">
+				<div id="sectiontitle">참고사항</div>
+				<div id="section3">
+					<p>여기서 전국연합학력평가 hwp 파일을 다운받을 수 있습니다.</p>
+					<p>또한 여러 가지 제작 가이드라인을 받을 수 있습니다.</p>
+					<p>hwp 파일은 인천광역시교육청에서 가져왔으며,
+					<p>가이드라인 pdf 파일은 경기도교육청에서 가져왔습니다.</p>
+					<p>문제가 될 경우 삭제합니다.</p>
+					<p><a href="../index.html" style="color: #ffffff">메인 페이지로 이동</a></p>
+				</div>
+			</div>
+			<div id="section2">
+				<div id="sectiontitle">전국연합학력평가 hwp 다운로드</div>
+				<div id="section3">
+					<div id="examhwp"></div>
+				</div>
+			</div>
+			<div id="section2">
+				<div id="sectiontitle">전국연합학력평가 가이드라인 다운로드</div>
+				<div id="section3">
+					<div id="examguideline"></div>
+				</div>
 			</div>
 		</div>
-		<div id="section2">
-			<div id="sectiontitle">전국연합학력평가 hwp 다운로드</div>
-			<div id="section3">
-				<div id="examhwp"></div>
-			</div>
-		</div>
-		<div id="section2">
-			<div id="sectiontitle">전국연합학력평가 가이드라인 다운로드</div>
-			<div id="section3">
-				<div id="examguideline"></div>
-			</div>
-		</div>
-	</div>
-	<script>
-		let filesdata = JSON.parse(JSON.stringify(data));
-		let examhwp = [];
-		let examguideline = [];
-		for(var i=0; i<filesdata.length; i++) {
-			for(var j=i; j<filesdata.length; j++) {
-				if(filesdata[i].index > filesdata[j].index) {
-					let temp = filesdata[i];
-					filesdata[i] = filesdata[j];
-					filesdata[j] = temp;
+		<script>
+			let filesdata = JSON.parse(JSON.stringify(data));
+			let examhwp = [];
+			let examguideline = [];
+			for (var i = 0; i < filesdata.length; i++) {
+				for (var j = i; j < filesdata.length; j++) {
+					if (filesdata[i].index > filesdata[j].index) {
+						let temp = filesdata[i];
+						filesdata[i] = filesdata[j];
+						filesdata[j] = temp;
+					}
 				}
 			}
-		}
-		for(var i=0; i<filesdata.length;i++) {
-			if(filesdata[i].file == '') {
-				continue;
+			for (var i = 0; i < filesdata.length; i++) {
+				if (filesdata[i].file == '') {
+					continue;
+				}
+				if (filesdata[i].group == 'go1_hwp' || filesdata[i].group == 'go2_hwp' || filesdata[i].group == 'go3_hwp') {
+					examhwp.push('<p><a id="project_link" target="_blank" href="?index=' + filesdata[i].index + '" style="">' + filesdata[i].name + '</a></p>');
+				} else if (filesdata[i].group == 'exam_hwp' || filesdata[i].group == 'exam_pdf') {
+					examguideline.push('<p><a id="project_link" target="_blank" href="?index=' + filesdata[i].index + '" style="">' + filesdata[i].name + '</a></p>');
+				}
 			}
-			if (filesdata[i].group == 'go1_hwp' || filesdata[i].group == 'go2_hwp' || filesdata[i].group == 'go3_hwp') {
-				examhwp.push('<p><a id="project_link" target="_blank" href="?index=' + filesdata[i].index + '" style="">' + filesdata[i].name + '</a></p>');
-			} else if (filesdata[i].group == 'exam_hwp' || filesdata[i].group == 'exam_pdf') {
-				examguideline.push('<p><a id="project_link" target="_blank" href="?index=' + filesdata[i].index + '" style="">' + filesdata[i].name + '</a></p>');
+			for (var i = 0; i < examhwp.length; i++) {
+				document.getElementById('examhwp').innerHTML += examhwp[i];
 			}
-		}
-		for(var i=0; i<examhwp.length; i++) {
-			document.getElementById('examhwp').innerHTML += examhwp[i];
-		}
-		for(var i=0; i<examguideline.length; i++) {
-			document.getElementById('examguideline').innerHTML += examguideline[i];
-		}
-	</script>
-</body>
-
+			for (var i = 0; i < examguideline.length; i++) {
+				document.getElementById('examguideline').innerHTML += examguideline[i];
+			}
+		</script>
+	</body>
 </html>

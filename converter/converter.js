@@ -271,7 +271,7 @@ function renderPage(pdf, pageNumber, numPages) {
 		// 페이지의 크기 (너비, 높이)를 확인
 		const originalWidth = page.getViewport({ scale: 1 }).width;
 		const originalHeight = page.getViewport({ scale: 1 }).height;
-		let viewport = page.getViewport({ scale: (2000 / originalWidth) });
+		let viewport = page.getViewport({ scale: (2480 / originalWidth) });
 		if (document.getElementById('auto_size').checked) {
 			width = document.getElementById('size_width_value').value;
 			height = document.getElementById('size_height_value').value;
