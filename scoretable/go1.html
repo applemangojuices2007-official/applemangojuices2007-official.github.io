@@ -118,17 +118,17 @@
 				}
 			}
 			else {
-				for (var i = 0; i <= 50; i++) {
-					if (i === 1 || i === 49) {
-						continue; // 1과 49는 건너뜀
+				for (var i = 0; i <= 100; i++) {
+					if (i === 1 || i === 2 || i === 98 || i === 99) {
+						continue; // 1 1.5 49 49.5는 건너뜀
 					}
-					var c = (10 * (i - a) / b + 50);
+					var c = (10 * (i/2 - a) / b + 50);
 					if (zscorearray[grade] == Math.round(c)) {
-						resultbox.value = ((grade + 1) + '등급 컷: ' + i + '\n') + resultbox.value;
-						document.getElementById("subjectscore2" + (grade + 1)).innerHTML = i;
-						document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
-						document.getElementById("subjectscore3" + (grade + 1)).innerHTML = i;
-						document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = Math.round(10 * (i - a) / b + 50);
+						resultbox.value = ((grade + 1) + '등급 컷: ' + i/2 + '\n') + resultbox.value;
+						document.getElementById("subjectscore2" + (grade + 1)).innerHTML = i/2;
+						document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = Math.round(10 * (i/2 - a) / b + 50);
+						document.getElementById("subjectscore3" + (grade + 1)).innerHTML = i/2;
+						document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = Math.round(10 * (i/2 - a) / b + 50);
 						grade--;
 					}
 					else if (zscorearray[grade] == '-') {
