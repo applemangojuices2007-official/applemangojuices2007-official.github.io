@@ -84,24 +84,15 @@
 		}
 		function score4_init() {
 			var grade = 7;
-
 			document.getElementById("subjectzscore20").innerHTML = '';
 			document.getElementById("subjectzscore29").innerHTML = '';
 			document.getElementById("subjectzscore30").innerHTML = '';
 			document.getElementById("subjectzscore39").innerHTML = '';
-
-			document.getElementById("subjectpercent20").innerHTML = '--';
-			document.getElementById("subjectpercent29").innerHTML = '--';
-			document.getElementById("subjectpercent30").innerHTML = '--';
-			document.getElementById("subjectpercent39").innerHTML = '--';
-
 			for (var i = 1; i <= 8; i++) {
 				document.getElementById("subjectscore2" + (grade + 1)).innerHTML = '';
 				document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = '';
 				document.getElementById("subjectscore3" + (grade + 1)).innerHTML = '';
 				document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = '';
-				document.getElementById("subjectpercent2" + (grade + 1)).innerHTML = '--';
-				document.getElementById("subjectpercent3" + (grade + 1)).innerHTML = '--';
 				grade--;
 			}
 		}
@@ -754,34 +745,34 @@
 						}
 						else{
 							noojeok_zscore[4 * scorecountround - 4].push(item['7. 탐구 영역(사회)']);
-							noojeok_people[4 * scorecountround - 4].push(item['__EMPTY_3']);
+							noojeok_people[4 * scorecountround - 4].push(item['__EMPTY_1']);
 						}
 					}
 					if(iszscorecounting_2) {
-						if(item['__EMPTY_4'] == undefined || item['__EMPTY_4'] == null || item['__EMPTY_4'] == '' || !Number.isInteger(item['__EMPTY_4'])) {
+						if(item['__EMPTY_2'] == undefined || item['__EMPTY_2'] == null || item['__EMPTY_2'] == '' || !Number.isInteger(item['__EMPTY_2'])) {
 							iszscorecounting_2 = false;
 						}
 						else{
-							noojeok_zscore[4 * scorecountround - 3].push(item['__EMPTY_4']);
-							noojeok_people[4 * scorecountround - 3].push(item['__EMPTY_8']);
+							noojeok_zscore[4 * scorecountround - 3].push(item['__EMPTY_2']);
+							noojeok_people[4 * scorecountround - 3].push(item['__EMPTY_4']);
 						}
 					}
 					if(iszscorecounting_3) {
-						if(item['__EMPTY_9'] == undefined || item['__EMPTY_9'] == null || item['__EMPTY_9'] == '' || !Number.isInteger(item['__EMPTY_9'])) {
+						if(item['__EMPTY_5'] == undefined || item['__EMPTY_5'] == null || item['__EMPTY_5'] == '' || !Number.isInteger(item['__EMPTY_5'])) {
 							iszscorecounting_3 = false;
 						}
 						else{
-							noojeok_zscore[4 * scorecountround - 2].push(item['__EMPTY_9']);
-							noojeok_people[4 * scorecountround - 2].push(item['__EMPTY_13']);
+							noojeok_zscore[4 * scorecountround - 2].push(item['__EMPTY_5']);
+							noojeok_people[4 * scorecountround - 2].push(item['__EMPTY_7']);
 						}
 					}
 					if(iszscorecounting_4) {
-						if(item['__EMPTY_14'] == undefined || item['__EMPTY_14'] == null || item['__EMPTY_14'] == '' || !Number.isInteger(item['__EMPTY_14'])) {
+						if(item['__EMPTY_8'] == undefined || item['__EMPTY_8'] == null || item['__EMPTY_8'] == '' || !Number.isInteger(item['__EMPTY_8'])) {
 							iszscorecounting_4 = false;
 						}
 						else{
-							noojeok_zscore[4 * scorecountround - 1].push(item['__EMPTY_14']);
-							noojeok_people[4 * scorecountround - 1].push(item['__EMPTY_18']);
+							noojeok_zscore[4 * scorecountround - 1].push(item['__EMPTY_8']);
+							noojeok_people[4 * scorecountround - 1].push(item['__EMPTY_10']);
 						}
 					}
 				}
@@ -807,34 +798,34 @@
 						}
 						else{
 							noojeok_zscore[4 * scorecountround - 7].push(item['8. 탐구 영역(과학)']);
-							noojeok_people[4 * scorecountround - 7].push(item['__EMPTY_3']);
+							noojeok_people[4 * scorecountround - 7].push(item['__EMPTY_1']);
 						}
 					}
 					if(iszscorecounting_2) {
-						if(item['__EMPTY_4'] == undefined || item['__EMPTY_4'] == null || item['__EMPTY_4'] == '' || !Number.isInteger(item['__EMPTY_4'])) {
+						if(item['__EMPTY_2'] == undefined || item['__EMPTY_2'] == null || item['__EMPTY_2'] == '' || !Number.isInteger(item['__EMPTY_2'])) {
 							iszscorecounting_2 = false;
 						}
 						else{
-							noojeok_zscore[4 * scorecountround - 6].push(item['__EMPTY_4']);
-							noojeok_people[4 * scorecountround - 6].push(item['__EMPTY_8']);
+							noojeok_zscore[4 * scorecountround - 6].push(item['__EMPTY_2']);
+							noojeok_people[4 * scorecountround - 6].push(item['__EMPTY_4']);
 						}
 					}
 					if(iszscorecounting_3) {
-						if(item['__EMPTY_9'] == undefined || item['__EMPTY_9'] == null || item['__EMPTY_9'] == '' || !Number.isInteger(item['__EMPTY_9'])) {
+						if(item['__EMPTY_5'] == undefined || item['__EMPTY_5'] == null || item['__EMPTY_5'] == '' || !Number.isInteger(item['__EMPTY_5'])) {
 							iszscorecounting_3 = false;
 						}
 						else{
-							noojeok_zscore[4 * scorecountround - 5].push(item['__EMPTY_9']);
-							noojeok_people[4 * scorecountround - 5].push(item['__EMPTY_13']);
+							noojeok_zscore[4 * scorecountround - 5].push(item['__EMPTY_5']);
+							noojeok_people[4 * scorecountround - 5].push(item['__EMPTY_7']);
 						}
 					}
 					if(iszscorecounting_4) {
-						if(item['__EMPTY_14'] == undefined || item['__EMPTY_14'] == null || item['__EMPTY_14'] == '' || !Number.isInteger(item['__EMPTY_14'])) {
+						if(item['__EMPTY_8'] == undefined || item['__EMPTY_8'] == null || item['__EMPTY_8'] == '' || !Number.isInteger(item['__EMPTY_8'])) {
 							iszscorecounting_4 = false;
 						}
 						else{
-							noojeok_zscore[4 * scorecountround - 4].push(item['__EMPTY_14']);
-							noojeok_people[4 * scorecountround - 4].push(item['__EMPTY_18']);
+							noojeok_zscore[4 * scorecountround - 4].push(item['__EMPTY_8']);
+							noojeok_people[4 * scorecountround - 4].push(item['__EMPTY_10']);
 						}
 					}
 				}

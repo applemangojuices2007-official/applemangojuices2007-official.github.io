@@ -41,7 +41,30 @@
 				resultbox.value += (result + '\n')
 			}
 		}
+		function score3_init() {
+			var grade = 7;
+			document.getElementById("subjectzscore0").innerHTML = '';
+			document.getElementById("subjectzscore9").innerHTML = '';
+			document.getElementById("subjectzscore10").innerHTML = '';
+			document.getElementById("subjectzscore19").innerHTML = '';
+
+			document.getElementById("subjectpercent0").innerHTML = '--';
+			document.getElementById("subjectpercent9").innerHTML = '--';
+			document.getElementById("subjectpercent10").innerHTML = '--';
+			document.getElementById("subjectpercent19").innerHTML = '--';
+
+			for (var i = 1; i <= 8; i++) {
+				document.getElementById("subjectscore" + (grade + 1)).innerHTML = '';
+				document.getElementById("subjectzscore" + (grade + 1)).innerHTML = '';
+				document.getElementById("subjectscore1" + (grade + 1)).innerHTML = '';
+				document.getElementById("subjectzscore1" + (grade + 1)).innerHTML = '';
+				document.getElementById("subjectpercent" + (grade + 1)).innerHTML = '--';
+				document.getElementById("subjectpercent1" + (grade + 1)).innerHTML = '--';
+				grade--;
+			}
+		}
 		function score3() {
+			score3_init();
 			var a = document.getElementById("search8").value;
 			var b = document.getElementById("search9").value;
 			var zscoretable = document.getElementById("zscoreinput1").value;
@@ -88,11 +111,19 @@
 			document.getElementById("subjectzscore29").innerHTML = '';
 			document.getElementById("subjectzscore30").innerHTML = '';
 			document.getElementById("subjectzscore39").innerHTML = '';
+
+			document.getElementById("subjectpercent20").innerHTML = '--';
+			document.getElementById("subjectpercent29").innerHTML = '--';
+			document.getElementById("subjectpercent30").innerHTML = '--';
+			document.getElementById("subjectpercent39").innerHTML = '--';
+
 			for (var i = 1; i <= 8; i++) {
 				document.getElementById("subjectscore2" + (grade + 1)).innerHTML = '';
 				document.getElementById("subjectzscore2" + (grade + 1)).innerHTML = '';
 				document.getElementById("subjectscore3" + (grade + 1)).innerHTML = '';
 				document.getElementById("subjectzscore3" + (grade + 1)).innerHTML = '';
+				document.getElementById("subjectpercent2" + (grade + 1)).innerHTML = '--';
+				document.getElementById("subjectpercent3" + (grade + 1)).innerHTML = '--';
 				grade--;
 			}
 		}
@@ -204,62 +235,73 @@
 					<div id="result7" class="tableforinstagram">
 						<table style="width: 100%; padding-top: 18%; padding-bottom: 18%;" border="1">
 							<tr>
-								<th colspan="3" id="subjectinfo1">국어(평균: 50.00, 표준편차: 20.00)<br></th>
+								<th colspan="4" id="subjectinfo1">국어(평균: 50.00, 표준편차: 20.00)<br></th>
 							</tr>
 							<tr>
 								<th>등급</th>
 								<th>원점수</th>
 								<th>표준점수</th>
+								<th>백분위</th>
 							</tr>
 							<tr>
 								<td>만점</td>
 								<td id="subjectscore0">100</td>
 								<td id="subjectzscore0">--</td>
+								<td id="subjectpercent0">--</td>
 							</tr>
 							<tr>
 								<td>1</td>
 								<td id="subjectscore1">--</td>
 								<td id="subjectzscore1">--</td>
+								<td id="subjectpercent1">--</td>
 							</tr>
 							<tr>
 								<td>2</td>
 								<td id="subjectscore2">--</td>
 								<td id="subjectzscore2">--</td>
+								<td id="subjectpercent2">--</td>
 							</tr>
 							<tr>
 								<td>3</td>
 								<td id="subjectscore3">--</td>
 								<td id="subjectzscore3">--</td>
+								<td id="subjectpercent3">--</td>
 							</tr>
 							<tr>
 								<td>4</td>
 								<td id="subjectscore4">--</td>
 								<td id="subjectzscore4">--</td>
+								<td id="subjectpercent4">--</td>
 							</tr>
 							<tr>
 								<td>5</td>
 								<td id="subjectscore5">--</td>
 								<td id="subjectzscore5">--</td>
+								<td id="subjectpercent5">--</td>
 							</tr>
 							<tr>
 								<td>6</td>
 								<td id="subjectscore6">--</td>
 								<td id="subjectzscore6">--</td>
+								<td id="subjectpercent6">--</td>
 							</tr>
 							<tr>
 								<td>7</td>
 								<td id="subjectscore7">--</td>
 								<td id="subjectzscore7">--</td>
+								<td id="subjectpercent7">--</td>
 							</tr>
 							<tr>
 								<td>8</td>
 								<td id="subjectscore8">--</td>
 								<td id="subjectzscore8">--</td>
+								<td id="subjectpercent8">--</td>
 							</tr>
 							<tr>
 								<td>9</td>
 								<td id="subjectscore9">0</td>
 								<td id="subjectzscore9">--</td>
+								<td id="subjectpercent9">--</td>
 							</tr>
 						</table>
 					</div>
@@ -287,62 +329,73 @@
 					<div id="result8">
 						<table style="width: 100%;" border="1">
 							<tr>
-								<th colspan="3" id="subjectinfo2">국어(평균: 50.00, 표준편차: 20.00)<br></th>
+								<th colspan="4" id="subjectinfo2">국어(평균: 50.00, 표준편차: 20.00)<br></th>
 							</tr>
 							<tr>
 								<th>등급</th>
 								<th>원점수</th>
 								<th>표준점수</th>
+								<th>백분위</th>
 							</tr>
 							<tr>
 								<td>만점</td>
 								<td id="subjectscore10">100</td>
 								<td id="subjectzscore10">--</td>
+								<td id="subjectpercent10">--</td>
 							</tr>
 							<tr>
 								<td>1</td>
 								<td id="subjectscore11">--</td>
 								<td id="subjectzscore11">--</td>
+								<td id="subjectpercent11">--</td>
 							</tr>
 							<tr>
 								<td>2</td>
 								<td id="subjectscore12">--</td>
 								<td id="subjectzscore12">--</td>
+								<td id="subjectpercent12">--</td>
 							</tr>
 							<tr>
 								<td>3</td>
 								<td id="subjectscore13">--</td>
 								<td id="subjectzscore13">--</td>
+								<td id="subjectpercent13">--</td>
 							</tr>
 							<tr>
 								<td>4</td>
 								<td id="subjectscore14">--</td>
 								<td id="subjectzscore14">--</td>
+								<td id="subjectpercent14">--</td>
 							</tr>
 							<tr>
 								<td>5</td>
 								<td id="subjectscore15">--</td>
 								<td id="subjectzscore15">--</td>
+								<td id="subjectpercent15">--</td>
 							</tr>
 							<tr>
 								<td>6</td>
 								<td id="subjectscore16">--</td>
 								<td id="subjectzscore16">--</td>
+								<td id="subjectpercent16">--</td>
 							</tr>
 							<tr>
 								<td>7</td>
 								<td id="subjectscore17">--</td>
 								<td id="subjectzscore17">--</td>
+								<td id="subjectpercent17">--</td>
 							</tr>
 							<tr>
 								<td>8</td>
 								<td id="subjectscore18">--</td>
 								<td id="subjectzscore18">--</td>
+								<td id="subjectpercent18">--</td>
 							</tr>
 							<tr>
 								<td>9</td>
 								<td id="subjectscore19">0</td>
 								<td id="subjectzscore19">--</td>
+								<td id="subjectpercent19">--</td>
 							</tr>
 						</table>
 					</div>
@@ -405,62 +458,73 @@
 					<div id="result5" class="tableforinstagram">
 						<table style="width: 100%; padding-top: 18%; padding-bottom: 18%;" border="1">
 							<tr>
-								<th colspan="3" id="subjectinfo3">한국사(평균: 25.00, 표준편차: 10.00)<br></th>
+								<th colspan="4" id="subjectinfo3">한국사(평균: 25.00, 표준편차: 10.00)<br></th>
 							</tr>
 							<tr>
 								<th>등급</th>
 								<th>원점수</th>
 								<th>표준점수</th>
+								<th>백분위</th>
 							</tr>
 							<tr>
 								<td>만점</td>
 								<td id="subjectscore20">50</td>
 								<td id="subjectzscore20">--</td>
+								<td id="subjectpercent20">--</td>
 							</tr>
 							<tr>
 								<td>1</td>
 								<td id="subjectscore21">--</td>
 								<td id="subjectzscore21">--</td>
+								<td id="subjectpercent21">--</td>
 							</tr>
 							<tr>
 								<td>2</td>
 								<td id="subjectscore22">--</td>
 								<td id="subjectzscore22">--</td>
+								<td id="subjectpercent22">--</td>
 							</tr>
 							<tr>
 								<td>3</td>
 								<td id="subjectscore23">--</td>
 								<td id="subjectzscore23">--</td>
+								<td id="subjectpercent23">--</td>
 							</tr>
 							<tr>
 								<td>4</td>
 								<td id="subjectscore24">--</td>
 								<td id="subjectzscore24">--</td>
+								<td id="subjectpercent24">--</td>
 							</tr>
 							<tr>
 								<td>5</td>
 								<td id="subjectscore25">--</td>
 								<td id="subjectzscore25">--</td>
+								<td id="subjectpercent25">--</td>
 							</tr>
 							<tr>
 								<td>6</td>
 								<td id="subjectscore26">--</td>
 								<td id="subjectzscore26">--</td>
+								<td id="subjectpercent26">--</td>
 							</tr>
 							<tr>
 								<td>7</td>
 								<td id="subjectscore27">--</td>
 								<td id="subjectzscore27">--</td>
+								<td id="subjectpercent27">--</td>
 							</tr>
 							<tr>
 								<td>8</td>
 								<td id="subjectscore28">--</td>
 								<td id="subjectzscore28">--</td>
+								<td id="subjectpercent28">--</td>
 							</tr>
 							<tr>
 								<td>9</td>
 								<td id="subjectscore29">0</td>
 								<td id="subjectzscore29">--</td>
+								<td id="subjectpercent29">--</td>
 							</tr>
 						</table>
 					</div>
@@ -488,62 +552,73 @@
 					<div id="result6">
 						<table style="width: 100%;" border="1">
 							<tr>
-								<th colspan="3" id="subjectinfo4">한국사(평균: 25.00, 표준편차: 10.00)<br></th>
+								<th colspan="4" id="subjectinfo4">한국사(평균: 25.00, 표준편차: 10.00)<br></th>
 							</tr>
 							<tr>
 								<th>등급</th>
 								<th>원점수</th>
 								<th>표준점수</th>
+								<th>백분위</th>
 							</tr>
 							<tr>
 								<td>만점</td>
 								<td id="subjectscore30">50</td>
 								<td id="subjectzscore30">--</td>
+								<td id="subjectpercent30">--</td>
 							</tr>
 							<tr>
 								<td>1</td>
 								<td id="subjectscore31">--</td>
 								<td id="subjectzscore31">--</td>
+								<td id="subjectpercent31">--</td>
 							</tr>
 							<tr>
 								<td>2</td>
 								<td id="subjectscore32">--</td>
 								<td id="subjectzscore32">--</td>
+								<td id="subjectpercent32">--</td>
 							</tr>
 							<tr>
 								<td>3</td>
 								<td id="subjectscore33">--</td>
 								<td id="subjectzscore33">--</td>
+								<td id="subjectpercent33">--</td>
 							</tr>
 							<tr>
 								<td>4</td>
 								<td id="subjectscore34">--</td>
 								<td id="subjectzscore34">--</td>
+								<td id="subjectpercent34">--</td>
 							</tr>
 							<tr>
 								<td>5</td>
 								<td id="subjectscore35">--</td>
 								<td id="subjectzscore35">--</td>
+								<td id="subjectpercent35">--</td>
 							</tr>
 							<tr>
 								<td>6</td>
 								<td id="subjectscore36">--</td>
 								<td id="subjectzscore36">--</td>
+								<td id="subjectpercent36">--</td>
 							</tr>
 							<tr>
 								<td>7</td>
 								<td id="subjectscore37">--</td>
 								<td id="subjectzscore37">--</td>
+								<td id="subjectpercent37">--</td>
 							</tr>
 							<tr>
 								<td>8</td>
 								<td id="subjectscore38">--</td>
 								<td id="subjectzscore38">--</td>
+								<td id="subjectpercent38">--</td>
 							</tr>
 							<tr>
 								<td>9</td>
 								<td id="subjectscore39">0</td>
 								<td id="subjectzscore39">--</td>
+								<td id="subjectpercent39">--</td>
 							</tr>
 						</table>
 					</div>
@@ -670,6 +745,151 @@
 				console.log(avg);
 				console.log(avg_subject_select);
 
+				// 누적 도수분포 불러오기
+				let noojeok_zscore = [];
+				let noojeok_people = [];
+
+				for (var i = 0; i < 15; i++) {
+					noojeok_zscore[i] = [];
+					noojeok_people[i] = [];
+				}
+
+				var iszscorecounting_1 = false;
+				var iszscorecounting_2 = false;
+				var iszscorecounting_3 = false;
+				var iszscorecounting_4 = false;
+				var scorecountround = 0;
+
+				// console.log(Object.keys(jsonData3[0])[0]);
+				for(const item of jsonData3) {
+					if(item[Object.keys(jsonData3[0])[0]] == "표준점수") {
+						iszscorecounting_1 = true;
+						iszscorecounting_2 = true;
+						continue;
+					}
+					if(iszscorecounting_1) {
+						if(item[Object.keys(jsonData3[0])[0]] == undefined || item[Object.keys(jsonData3[0])[0]] == null || item[Object.keys(jsonData3[0])[0]] == '' || !Number.isInteger(item[Object.keys(jsonData3[0])[0]])) {
+							iszscorecounting_1 = false;
+						}
+						else{
+							noojeok_zscore[0].push(item[Object.keys(jsonData3[0])[0]]);
+							noojeok_people[0].push(item['__EMPTY_3']);
+						}
+					}
+					if(iszscorecounting_2) {
+						if(item['__EMPTY_4'] == undefined || item['__EMPTY_4'] == null || item['__EMPTY_4'] == '' || !Number.isInteger(item['__EMPTY_4'])) {
+							iszscorecounting_2 = false;
+						}
+						else{
+							noojeok_zscore[1].push(item['__EMPTY_4']);
+							noojeok_people[1].push(item['__EMPTY_8']);
+						}
+					}
+				}
+
+				for(const item of jsonData4) {
+					// console.log(item);
+					if(item[Object.keys(jsonData4[0])[0]] == "표준점수") {
+						iszscorecounting_1 = true;
+						iszscorecounting_2 = true;
+						iszscorecounting_3 = true;
+						iszscorecounting_4 = true;
+						scorecountround++;
+						continue;
+					}
+					if(iszscorecounting_1) {
+						if(item[Object.keys(jsonData4[0])[0]] == undefined || item[Object.keys(jsonData4[0])[0]] == null || item[Object.keys(jsonData4[0])[0]] == '' || !Number.isInteger(item[Object.keys(jsonData4[0])[0]])) {
+							iszscorecounting_1 = false;
+						}
+						else{
+							noojeok_zscore[4 * scorecountround - 2].push(item[Object.keys(jsonData4[0])[0]]);
+							noojeok_people[4 * scorecountround - 2].push(item['__EMPTY_3']);
+						}
+					}
+					if(iszscorecounting_2) {
+						if(item['__EMPTY_4'] == undefined || item['__EMPTY_4'] == null || item['__EMPTY_4'] == '' || !Number.isInteger(item['__EMPTY_4'])) {
+							iszscorecounting_2 = false;
+						}
+						else{
+							noojeok_zscore[4 * scorecountround - 1].push(item['__EMPTY_4']);
+							noojeok_people[4 * scorecountround - 1].push(item['__EMPTY_8']);
+						}
+					}
+					if(iszscorecounting_3) {
+						if(item['__EMPTY_9'] == undefined || item['__EMPTY_9'] == null || item['__EMPTY_9'] == '' || !Number.isInteger(item['__EMPTY_9'])) {
+							iszscorecounting_3 = false;
+						}
+						else{
+							noojeok_zscore[4 * scorecountround - 0].push(item['__EMPTY_9']);
+							noojeok_people[4 * scorecountround - 0].push(item['__EMPTY_13']);
+						}
+					}
+					if(iszscorecounting_4) {
+						if(item['__EMPTY_14'] == undefined || item['__EMPTY_14'] == null || item['__EMPTY_14'] == '' || !Number.isInteger(item['__EMPTY_14'])) {
+							iszscorecounting_4 = false;
+						}
+						else{
+							noojeok_zscore[4 * scorecountround + 1].push(item['__EMPTY_14']);
+							noojeok_people[4 * scorecountround + 1].push(item['__EMPTY_18']);
+						}
+					}
+				}
+
+				iszscorecounting_1 = false;
+				iszscorecounting_2 = false;
+				iszscorecounting_3 = false;
+				iszscorecounting_4 = false;
+
+				for(const item of jsonData5) {
+					// console.log(item);
+					if(item[Object.keys(jsonData5[0])[0]] == "표준점수") {
+						iszscorecounting_1 = true;
+						iszscorecounting_2 = true;
+						iszscorecounting_3 = true;
+						iszscorecounting_4 = true;
+						scorecountround++;
+						continue;
+					}
+					if(iszscorecounting_1) {
+						if(item[Object.keys(jsonData5[0])[0]] == undefined || item[Object.keys(jsonData5[0])[0]] == null || item[Object.keys(jsonData5[0])[0]] == '' || !Number.isInteger(item[Object.keys(jsonData5[0])[0]])) {
+							iszscorecounting_1 = false;
+						}
+						else{
+							noojeok_zscore[4 * scorecountround - 5].push(item[Object.keys(jsonData5[0])[0]]);
+							noojeok_people[4 * scorecountround - 5].push(item['__EMPTY_3']);
+						}
+					}
+					if(iszscorecounting_2) {
+						if(item['__EMPTY_4'] == undefined || item['__EMPTY_4'] == null || item['__EMPTY_4'] == '' || !Number.isInteger(item['__EMPTY_4'])) {
+							iszscorecounting_2 = false;
+						}
+						else{
+							noojeok_zscore[4 * scorecountround - 4].push(item['__EMPTY_4']);
+							noojeok_people[4 * scorecountround - 4].push(item['__EMPTY_8']);
+						}
+					}
+					if(iszscorecounting_3) {
+						if(item['__EMPTY_9'] == undefined || item['__EMPTY_9'] == null || item['__EMPTY_9'] == '' || !Number.isInteger(item['__EMPTY_9'])) {
+							iszscorecounting_3 = false;
+						}
+						else{
+							noojeok_zscore[4 * scorecountround - 3].push(item['__EMPTY_9']);
+							noojeok_people[4 * scorecountround - 3].push(item['__EMPTY_13']);
+						}
+					}
+					if(iszscorecounting_4) {
+						if(item['__EMPTY_14'] == undefined || item['__EMPTY_14'] == null || item['__EMPTY_14'] == '' || !Number.isInteger(item['__EMPTY_14'])) {
+							iszscorecounting_4 = false;
+						}
+						else{
+							noojeok_zscore[4 * scorecountround - 2].push(item['__EMPTY_14']);
+							noojeok_people[4 * scorecountround - 2].push(item['__EMPTY_18']);
+						}
+					}
+				}
+				console.log(noojeok_zscore);
+				console.log(noojeok_people);
+
 				// 국어, 수학, 영어 등급컷 산출
 				for (var i = 0; i < 3; i++) {
 					document.getElementById('zscoreinput1').value = zscore[i].join("\n");
@@ -677,6 +897,29 @@
 					document.getElementById('search9').value = sd[i + 1];
 					document.getElementById('search15').value = i;
 					document.getElementById('search10').click();
+					if(i==0 || i==1){
+						document.getElementById('subjectpercent0').innerText = (100-(noojeok_people[i][0]/people[i+1] / 2 * 100)).toFixed(2);
+						document.getElementById('subjectpercent10').innerText = (100-(noojeok_people[i][0]/people[i+1] / 2 * 100)).toFixed(2);
+						for(var j=0; j<9; j++) {
+							for(var tempzscore = 0; tempzscore < noojeok_zscore[i].length; tempzscore++) {
+								if(zscore[i][j] == '-') {
+									document.getElementById(`subjectpercent${1 + j}`).innerText = '--';
+									document.getElementById(`subjectpercent${11 + j}`).innerText = '--';
+								}
+								else if(noojeok_zscore[i][tempzscore] == zscore[i][j]) {
+									if(tempzscore == 0) {
+										document.getElementById(`subjectpercent${1 + j}`).innerText = (100 - (noojeok_people[i][tempzscore]/people[i+1] / 2 * 100)).toFixed(2);
+										document.getElementById(`subjectpercent${11 + j}`).innerText = (100 - (noojeok_people[i][tempzscore]/people[i+1] / 2 * 100)).toFixed(2);
+									}
+									else {
+										document.getElementById(`subjectpercent${1 + j}`).innerText = (100 - ((noojeok_people[i][tempzscore] + noojeok_people[i][tempzscore - 1]) / 2)/people[i+1] * 100).toFixed(2);
+										document.getElementById(`subjectpercent${11 + j}`).innerText = (100 - ((noojeok_people[i][tempzscore] + noojeok_people[i][tempzscore - 1]) / 2)/people[i+1] * 100).toFixed(2);
+									}
+								}
+							}
+						}
+					}
+
 					await html2canvas(document.getElementById('result8')).then(async function (canvas) {
 						// 캔버스를 이미지 URL로 변환
 						var imgURL = canvas.toDataURL('image/png');
@@ -726,6 +969,28 @@
 					document.getElementById('search12').value = sd[i + 5];
 					document.getElementById('search14').value = i + 8;
 					document.getElementById('search13').click();
+
+					document.getElementById('subjectpercent20').innerText = (100-(noojeok_people[i+2][0]/people[i+5] / 2 * 100)).toFixed(2);
+					document.getElementById('subjectpercent30').innerText = (100-(noojeok_people[i+2][0]/people[i+5] / 2 * 100)).toFixed(2);
+					for(var j=0; j<9; j++) {
+						for(var tempzscore = 0; tempzscore < noojeok_zscore[i+2].length; tempzscore++) {
+							if(zscore[i+4][j] == '-') {
+								document.getElementById(`subjectpercent${21 + j}`).innerText = '--';
+								document.getElementById(`subjectpercent${31 + j}`).innerText = '--';
+							}
+							else if(noojeok_zscore[i+2][tempzscore] == zscore[i+4][j]) {
+								if(tempzscore == 0) {
+									document.getElementById(`subjectpercent${21 + j}`).innerText = (100 - (noojeok_people[i+2][tempzscore]/people[i+5] / 2 * 100)).toFixed(2);
+									document.getElementById(`subjectpercent${31 + j}`).innerText = (100 - (noojeok_people[i+2][tempzscore]/people[i+5] / 2 * 100)).toFixed(2);
+								}
+								else {
+									document.getElementById(`subjectpercent${21 + j}`).innerText = (100 - ((noojeok_people[i+2][tempzscore] + noojeok_people[i+2][tempzscore - 1]) / 2)/people[i+5] * 100).toFixed(2);
+									document.getElementById(`subjectpercent${31 + j}`).innerText = (100 - ((noojeok_people[i+2][tempzscore] + noojeok_people[i+2][tempzscore - 1]) / 2)/people[i+5] * 100).toFixed(2);
+								}
+							}
+						}
+					}
+					
 					await html2canvas(document.getElementById('result6')).then(async function (canvas) {
 						// 캔버스를 이미지 URL로 변환
 						var imgURL = canvas.toDataURL('image/png');
