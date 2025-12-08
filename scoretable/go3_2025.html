@@ -731,7 +731,7 @@
 
 				for(const item of jsonData4) {
 					// console.log(item);
-					if(item['7. 탐구 영역(사회)'] == "표준점수") {
+					if(item[Object.keys(jsonData4[0])[0]] == "표준점수") {
 						iszscorecounting_1 = true;
 						iszscorecounting_2 = true;
 						iszscorecounting_3 = true;
@@ -740,11 +740,11 @@
 						continue;
 					}
 					if(iszscorecounting_1) {
-						if(item['7. 탐구 영역(사회)'] == undefined || item['7. 탐구 영역(사회)'] == null || item['7. 탐구 영역(사회)'] == '' || !Number.isInteger(item['7. 탐구 영역(사회)'])) {
+						if(item[Object.keys(jsonData4[0])[0]] == undefined || item[Object.keys(jsonData4[0])[0]] == null || item[Object.keys(jsonData4[0])[0]] == '' || !Number.isInteger(item[Object.keys(jsonData4[0])[0]])) {
 							iszscorecounting_1 = false;
 						}
 						else{
-							noojeok_zscore[4 * scorecountround - 4].push(item['7. 탐구 영역(사회)']);
+							noojeok_zscore[4 * scorecountround - 4].push(item[Object.keys(jsonData4[0])[0]]);
 							noojeok_people[4 * scorecountround - 4].push(item['__EMPTY_1']);
 						}
 					}
@@ -784,7 +784,7 @@
 
 				for(const item of jsonData5) {
 					// console.log(item);
-					if(item['8. 탐구 영역(과학)'] == "표준점수") {
+					if(item[Object.keys(jsonData5[0])[0]] == "표준점수") {
 						iszscorecounting_1 = true;
 						iszscorecounting_2 = true;
 						iszscorecounting_3 = true;
@@ -793,11 +793,11 @@
 						continue;
 					}
 					if(iszscorecounting_1) {
-						if(item['8. 탐구 영역(과학)'] == undefined || item['8. 탐구 영역(과학)'] == null || item['8. 탐구 영역(과학)'] == '' || !Number.isInteger(item['8. 탐구 영역(과학)'])) {
+						if(item[Object.keys(jsonData5[0])[0]] == undefined || item[Object.keys(jsonData5[0])[0]] == null || item[Object.keys(jsonData5[0])[0]] == '' || !Number.isInteger(item[Object.keys(jsonData5[0])[0]])) {
 							iszscorecounting_1 = false;
 						}
 						else{
-							noojeok_zscore[4 * scorecountround - 7].push(item['8. 탐구 영역(과학)']);
+							noojeok_zscore[4 * scorecountround - 7].push(item[Object.keys(jsonData5[0])[0]]);
 							noojeok_people[4 * scorecountround - 7].push(item['__EMPTY_1']);
 						}
 					}
