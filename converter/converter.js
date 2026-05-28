@@ -10,6 +10,53 @@ document.getElementById('pdf-file').addEventListener('change', function (event) 
 	}
 });
 
+document.getElementById('load-pdf-url').addEventListener('click', function () {
+	const url = document.getElementById('pdf-url').value;
+	if (url) {
+		if (document.querySelector('input[name="async"]:checked').value == "async_true") {
+			async_loadPDFFromURL(url);
+		}
+		else if (document.querySelector('input[name="async"]:checked').value == "async_false") {
+			loadPDFFromURL(url);
+		}
+		else {
+			async_loadPDFFromURL(url);
+		}
+	}
+});
+
+function loadPDFFromURL(url) {
+	fetch(url)
+		.then(response => {
+			if (!response.ok) {
+				throw new Error('네트워크 응답이 올바르지 않습니다: ' + response.statusText);
+			}
+			return response.arrayBuffer();
+		})
+		.then(pdfData => {
+			loadPDF(new Uint8Array(pdfData));
+		})
+		.catch(error => {
+			console.error('PDF 로드 중 오류 발생:', error);
+		});
+}
+
+function async_loadPDFFromURL(url) {
+	fetch(url)
+		.then(response => {
+			if (!response.ok) {
+				throw new Error('네트워크 응답이 올바르지 않습니다: ' + response.statusText);
+			}
+			return response.arrayBuffer();
+		})
+		.then(pdfData => {
+			async_loadPDF(new Uint8Array(pdfData));
+		})
+		.catch(error => {
+			console.error('PDF 로드 중 오류 발생:', error);
+		});
+}
+
 function getToday(){
     var date = new Date();
     var year = date.getFullYear();
