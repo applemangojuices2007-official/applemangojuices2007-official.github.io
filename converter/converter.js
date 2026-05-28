@@ -25,6 +25,13 @@ document.getElementById('load-pdf-url').addEventListener('click', function () {
 	}
 });
 
+document.getElementById('pdf-url').addEventListener('keypress', function (event) {
+	if (event.key === 'Enter') {
+		event.preventDefault();
+		document.getElementById('load-pdf-url').click();
+	}
+});
+
 function loadPDFFromURL(url) {
 	fetch(url)
 		.then(response => {
@@ -38,6 +45,8 @@ function loadPDFFromURL(url) {
 		})
 		.catch(error => {
 			console.error('PDF 로드 중 오류 발생:', error);
+			document.getElementById('convertstatuscolor').innerHTML = '오류 발생: ' + error;
+			document.getElementById('convertstatuscolor').style.color = '#FF0000';
 		});
 }
 
@@ -54,6 +63,8 @@ function async_loadPDFFromURL(url) {
 		})
 		.catch(error => {
 			console.error('PDF 로드 중 오류 발생:', error);
+			document.getElementById('convertstatuscolor').innerHTML = '오류 발생: ' + error;
+			document.getElementById('convertstatuscolor').style.color = '#FF0000';
 		});
 }
 
